@@ -22,9 +22,9 @@ export const SteamBaths: React.FC = () => {
       <Container>
         <div className="flex items-end relative">
           <motion.h2
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
             className="max-w-[630px] w-full text-[50px] leading-[120%] mb-[55px] z-10"
             id="steam-title">
@@ -42,7 +42,7 @@ export const SteamBaths: React.FC = () => {
           }}
           initial={{ width: 0 }}
           whileInView={{ width: '100%' }}
-          transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
+          transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }}
           viewport={{ once: true }}
         />
 
@@ -90,7 +90,7 @@ export const SteamBaths: React.FC = () => {
                 распределяться по помещению и эффективно мягко прогревать тело.
               </p>
               <div className="flex justify-between items-end">
-                <button className="bg-white text-black w-[142px] h-[40px] text-[14px] font-[500] leading-[20px]">
+                <button className="border border-transparent hover:bg-transparent hover:text-white hover:border-white/15 transition-all duration-300 bg-white text-black w-[142px] h-[40px] text-[14px] font-[500] leading-[20px]">
                   Забронировать
                 </button>
                 <svg
@@ -181,7 +181,7 @@ export const SteamBaths: React.FC = () => {
                 распределяться по помещению и эффективно мягко прогревать тело.
               </p>
               <div className="flex justify-between items-end">
-                <button className="bg-white text-black w-[142px] h-[40px] text-[14px] font-[500] leading-[20px]">
+                <button className="border border-transparent hover:bg-transparent hover:text-white hover:border-white/15 transition-all duration-300 bg-white text-black w-[142px] h-[40px] text-[14px] font-[500] leading-[20px]">
                   Забронировать
                 </button>
                 <svg

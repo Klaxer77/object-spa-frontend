@@ -12,7 +12,7 @@ export const SlideItem: React.FC<SlideItemProps> = ({ title, image, link }) => {
           <p className="text-white/50 leading-[24px] mb-[8px]">Спецпредложение</p>
           <p className="font-[500] text-[25px] leading-[120%]">{title}</p>
         </div>
-        <button className='border border-white h-[45px] w-full text-[14px] leading-[20px]'>Перейти</button>
+        <button className='border hover:bg-white hover:text-black transition-all duration-300 border-white h-[45px] w-full text-[14px] leading-[20px]'>Перейти</button>
       </div>
     </div> 
   );
