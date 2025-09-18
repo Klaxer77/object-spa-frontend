@@ -1,0 +1,1 @@
+export { MainSliderSection } from './ui/MainSliderSection';
