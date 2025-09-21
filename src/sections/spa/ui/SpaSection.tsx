@@ -52,16 +52,16 @@ export const SpaSection: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="w-full bg-white/50 h-[0.8px] absolute bottom-0 left-0"
             />
-            <p className="text-[50px] leading-[110%] mb-[30px]">
+            <h3 className="text-[50px] leading-[110%] mb-[30px]">
               Роскошное <br /> спа-пространство
-            </p>
+            </h3>
             <button
               onMouseMove={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
               className={`rounded-[58px] max-w-[260px] w-full h-[45px] border ${
                 isHovered ? 'bg-transparent border-white/15' : 'bg-white border-transparent'
               } pl-[3px] py-[2px] flex items-center justify-between pr-[15px] transition-colors duration-300`}>
-              <div className="bg-black rounded-[29px] h-full flex justify-center items-center w-[210px] transition-colors duration-300">
+              <div className={`${isHovered ? 'bg-transparent' : 'bg-black'} rounded-[29px] h-full flex justify-center items-center w-[210px] transition-colors duration-300`}>
                 <p className="text-[14px] font-[500] text-white leading-[20px]">
                   Перейти к бронированию
                 </p>
@@ -108,14 +108,14 @@ export const SpaSection: React.FC = () => {
               initial={{ width: 0 }}
               whileInView={{ width: '100%' }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               className="w-full bg-white/15 h-[1px] absolute top-0 right-0"
             />
             <motion.div
               initial={{ height: 0 }}
               whileInView={{ height: '100%' }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
               className="w-[0.8px] bg-white/15 h-full absolute top-0 right-0"
             />
           </div>

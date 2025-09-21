@@ -13,7 +13,7 @@ const fadeIn = (delay: number) => ({
 
 export const TitleSection: React.FC = () => {
   return (
-    <section className="mt-[50px] relative overflow-hidden">
+    <section className="mt-[50px] relative z-[0] overflow-hidden">
       <motion.div
         variants={fadeIn(0.1)}
         initial="hidden"

@@ -1,16 +1,40 @@
-import Image from "next/image";
+'use client';
+
+import Image from 'next/image';
+import { DropDownMenu } from './DropDownMenu';
+import { useRef, useState } from 'react';
 
 export const Header: React.FC = () => {
+  const [open, setOpen] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setOpen(false);
+    }, 100);
+  };
+
   return (
-    <header className="h-[60px] w-full flex items-center justify-between pl-[30px] border-b border-white/15">
+    <header className="h-[60px] w-full flex items-center justify-between pl-[30px] border-b border-white/15 relative z-20">
       <div>
-        <Image src='/img/Logo.webp' width={140} height={16} alt="logo" />
+        <Image src="/img/Logo.webp" width={140} height={16} alt="logo" />
       </div>
       <nav className="absolute left-1/2 -translate-x-1/2">
         <ul className="flex gap-[30px] items-center">
-          <li className="flex gap-[10px] items-center">
+          <li
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className="flex gap-[10px] items-center relative cursor-pointer">
             <p className="text-[14px] leading-[20px]">Каталог услуг</p>
             <svg
+              className={`${open ? 'rotate-180' : ''} transition-all duration-200`}
               xmlns="http://www.w3.org/2000/svg"
               width="13"
               height="12"
@@ -23,6 +47,7 @@ export const Header: React.FC = () => {
                 fill="#F4F4F4"
               />
             </svg>
+            {open && <DropDownMenu />}
           </li>
           <li>
             <p className="text-[14px] leading-[20px]">Программы</p>
