@@ -1,0 +1,1 @@
+export { SpaPageSection } from './ui/SpaPageSection';

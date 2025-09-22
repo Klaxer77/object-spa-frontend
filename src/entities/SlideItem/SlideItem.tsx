@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { SlideItemProps } from './type';
 
-export const SlideItem: React.FC<SlideItemProps> = ({ title, image, link }) => {
+export const SlideItem: React.FC<SlideItemProps> = ({ title, image }) => {
   return (
     <div className="max-w-[420px] w-full min-h-[190px] flex">
       <div className="relative w-[190px] h-[190px] overflow-hidden">

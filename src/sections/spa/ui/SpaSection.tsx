@@ -61,7 +61,10 @@ export const SpaSection: React.FC = () => {
               className={`rounded-[58px] max-w-[260px] w-full h-[45px] border ${
                 isHovered ? 'bg-transparent border-white/15' : 'bg-white border-transparent'
               } pl-[3px] py-[2px] flex items-center justify-between pr-[15px] transition-colors duration-300`}>
-              <div className={`${isHovered ? 'bg-transparent' : 'bg-black'} rounded-[29px] h-full flex justify-center items-center w-[210px] transition-colors duration-300`}>
+              <div
+                className={`${
+                  isHovered ? 'bg-transparent' : 'bg-black'
+                } rounded-[29px] h-full flex justify-center items-center w-[210px] transition-colors duration-300`}>
                 <p className="text-[14px] font-[500] text-white leading-[20px]">
                   Перейти к бронированию
                 </p>
