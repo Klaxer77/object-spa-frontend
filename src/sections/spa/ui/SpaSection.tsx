@@ -36,21 +36,21 @@ export const SpaSection: React.FC = () => {
               whileInView={{ width: '100%' }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="w-full bg-white/50 h-[0.8px] absolute top-0 left-0"
+              className="w-full bg-white/15 h-[0.8px] absolute top-0 left-0"
             />
             <motion.div
               initial={{ height: 0 }}
               whileInView={{ height: '100%' }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="w-[1px] bg-white/50 h-full absolute top-0 left-0 origin-center"
+              className="w-[1px] bg-white/15 h-full absolute top-0 left-0 origin-center"
             />
             <motion.div
               initial={{ width: 0 }}
               whileInView={{ width: '100%' }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="w-full bg-white/50 h-[0.8px] absolute bottom-0 left-0"
+              className="w-full bg-white/15 h-[0.8px] absolute bottom-0 left-0"
             />
             <h3 className="text-[50px] leading-[110%] mb-[30px]">
               Роскошное <br /> спа-пространство

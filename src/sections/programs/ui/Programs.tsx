@@ -13,11 +13,10 @@ interface ProgramCard {
   time: string;
 }
 
+type CardType = 'he' | 'her' | 'pair' | 'vip';
+
 export const Programs: React.FC = () => {
-  const [isActiveHe, setIsActiveHe] = useState(false);
-  const [isActiveHer, setIsActiveHer] = useState(false);
-  const [isActivePair, setIsActivePair] = useState(false);
-  const [isActiveVIP, setIsActiveVIP] = useState(false);
+  const [activeCard, setActiveCard] = useState<CardType | null>(null);
 
   const [isDragging, setIsDragging] = useState(false);
   const [dragStartX, setDragStartX] = useState(0);
@@ -54,12 +53,13 @@ export const Programs: React.FC = () => {
 
   const handleMouseUp = () => setIsDragging(false);
 
-  const handleButtonClick = (
-    e: React.MouseEvent,
-    setActive: React.Dispatch<React.SetStateAction<boolean>>,
-  ) => {
+  const handleButtonClick = (e: React.MouseEvent, cardType: CardType) => {
     e.stopPropagation();
-    setActive((prev) => !prev);
+    setActiveCard(activeCard === cardType ? null : cardType);
+  };
+
+  const handleCardClick = (cardType: CardType) => {
+    setActiveCard(activeCard === cardType ? null : cardType);
   };
 
   useEffect(() => {
@@ -119,27 +119,27 @@ export const Programs: React.FC = () => {
         {/* Первая карточка HE с drag */}
         <div
           className="relative overflow-visible transition-all duration-500 ease-in-out"
-          style={{ height: isActiveHe ? expandedHeight : collapsedHeight }}>
+          style={{ height: activeCard === 'he' ? expandedHeight : collapsedHeight }}>
           <div
             className="relative flex-shrink-0 cursor-pointer transition-all duration-500 ease-in-out"
             style={{
-              width: isActiveHe ? `calc(100% - ${visibleWidthHe}px)` : '100%',
+              width: activeCard === 'he' ? `calc(100% - ${visibleWidthHe}px)` : '100%',
               height: '100%',
             }}
-            onClick={() => setIsActiveHe((prev) => !prev)}>
+            onClick={() => handleCardClick('he')}>
             <Image src="/img/he.webp" alt="bg" fill className="object-cover" />
             <div className="absolute inset-0 z-20 flex flex-col justify-between p-[30px]">
               <div>
                 <p className="text-[22px] leading-[120%]">3 программы</p>
                 <p className="text-[40px] leading-[55px] mb-[25px]">Для него</p>
               </div>
-              {!isActiveHe && (
+              {activeCard !== 'he' && (
                 <motion.button
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   className="w-[103px] h-[38px] backdrop-blur-[2px] bg-white/15 border border-white/50 z-40"
-                  onClick={(e) => handleButtonClick(e, setIsActiveHe)}>
-                  Скрыть
+                  onClick={(e) => handleButtonClick(e, 'he')}>
+                  Смотреть
                 </motion.button>
               )}
             </div>
@@ -149,22 +149,22 @@ export const Programs: React.FC = () => {
             ref={scrollHeRef}
             className="absolute top-0 right-0 flex-shrink-0 overflow-x-auto overflow-y-hidden scrollbar-hide z-20 cursor-grab transition-all duration-500"
             style={{
-              width: isActiveHe ? `${visibleWidthHe}px` : '0px',
-              height: isActiveHe ? expandedHeight : collapsedHeight,
+              width: activeCard === 'he' ? `${visibleWidthHe}px` : '0px',
+              height: activeCard === 'he' ? expandedHeight : collapsedHeight,
             }}
             onMouseDown={(e) => handleMouseDown(e, scrollHeRef)}
             onMouseMove={(e) => handleMouseMove(e, scrollHeRef)}
             onMouseUp={handleMouseUp}>
             <div className="flex h-full" style={{ width: `${blockWidthHe * HE_DATA.length}px` }}>
-              {HE_DATA.map((item, i) => renderCard(item, i, isActiveHe, blockWidthHe))}
+              {HE_DATA.map((item, i) => renderCard(item, i, activeCard === 'he', blockWidthHe))}
             </div>
           </div>
         </div>
 
         {[
           {
-            active: isActiveHer,
-            setActive: setIsActiveHer,
+            type: 'her' as CardType,
+            active: activeCard === 'her',
             title: 'Для неё',
             img: '/img/her.webp',
             data: HER_DATA,
@@ -172,8 +172,8 @@ export const Programs: React.FC = () => {
             visibleWidth: visibleWidthHer,
           },
           {
-            active: isActivePair,
-            setActive: setIsActivePair,
+            type: 'pair' as CardType,
+            active: activeCard === 'pair',
             title: 'Для пары',
             img: '/img/pear.webp',
             data: PEAR_DATA,
@@ -181,8 +181,8 @@ export const Programs: React.FC = () => {
             visibleWidth: visibleWidthHer,
           },
           {
-            active: isActiveVIP,
-            setActive: setIsActiveVIP,
+            type: 'vip' as CardType,
+            active: activeCard === 'vip',
             title: 'Для партнеров',
             img: '/img/vip.webp',
             data: VIP_DATA,
@@ -200,7 +200,7 @@ export const Programs: React.FC = () => {
                 width: card.active ? `calc(100% - ${card.visibleWidth}px)` : '100%',
                 height: '100%',
               }}
-              onClick={() => card.setActive((prev) => !prev)}>
+              onClick={() => handleCardClick(card.type)}>
               <Image src={card.img} alt="bg" fill className="object-cover" />
               <div className="absolute inset-0 z-20 flex flex-col justify-between p-[30px]">
                 <div>
@@ -216,7 +216,7 @@ export const Programs: React.FC = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     className="w-[103px] h-[38px] backdrop-blur-[2px] bg-white/15 border border-white/50 z-40"
-                    onClick={(e) => handleButtonClick(e, card.setActive)}>
+                    onClick={(e) => handleButtonClick(e, card.type)}>
                     Смотреть
                   </motion.button>
                 )}

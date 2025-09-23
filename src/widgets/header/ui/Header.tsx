@@ -61,10 +61,10 @@ export const Header: React.FC = () => {
         </ul>
       </nav>
       <div className="flex">
-        <button className="border-l hover:bg-white hover:text-black transition-all duration-300 border-white/15 font-[500] text-[14px] leading-[20px] h-[60px] w-[130px] flex justify-center items-center">
+        <button className="border-l hover:bg-white/15 transition-all duration-300 border-white/15 font-[500] text-[14px] leading-[20px] h-[60px] w-[130px] flex justify-center items-center">
           Связаться
         </button>
-        <button className="bg-white border border-b-0 border-transparent hover:border-white/15 hover:bg-transparent hover:text-white transition-all duration-300 h-[60px] w-[180px] text-black text-[14px] font-[500] leading-[20px] uppercase flex justify-center items-center">
+        <button className="bg-white border border-b-0 border-transparent hover:border-white/15 hover:bg-white/15 hover:text-white transition-all duration-300 h-[60px] w-[180px] text-black text-[14px] font-[500] leading-[20px] uppercase flex justify-center items-center">
           Забронировать
         </button>
       </div>
