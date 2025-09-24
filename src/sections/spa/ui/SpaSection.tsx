@@ -55,35 +55,8 @@ export const SpaSection: React.FC = () => {
             <h3 className="text-[50px] leading-[110%] mb-[30px]">
               Роскошное <br /> спа-пространство
             </h3>
-            <button
-              onMouseMove={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              className={`rounded-[58px] max-w-[260px] w-full h-[45px] border ${
-                isHovered ? 'bg-transparent border-white/15' : 'bg-white border-transparent'
-              } pl-[3px] py-[2px] flex items-center justify-between pr-[15px] transition-colors duration-300`}>
-              <div
-                className={`${
-                  isHovered ? 'bg-transparent' : 'bg-black'
-                } rounded-[29px] h-full flex justify-center items-center w-[210px] transition-colors duration-300`}>
-                <p className="text-[14px] font-[500] text-white leading-[20px]">
-                  Перейти к бронированию
-                </p>
-              </div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none">
-                <path
-                  className="transition-all duration-300"
-                  d="M1.84318 12.1564L13.1569 0.842702M13.1569 0.842702L0.976883 0.842697M13.1569 0.842702L13.1569 13.0227"
-                  stroke={`${isHovered ? '#fff' : '#1D1E1C'}`}
-                  stroke-width="1.44923"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+            <button className="border hover:bg-white hover:text-black transition-all duration-300 border-white h-[45px] w-full max-w-[196px] text-[14px] leading-[20px]">
+              Перейти к бронированию
             </button>
           </div>
         </div>
