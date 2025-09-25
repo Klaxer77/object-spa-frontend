@@ -6,9 +6,12 @@ import { useRef, useState } from 'react';
 import Link from 'next/link';
 
 import { Link as ScrollLink } from 'react-scroll';
+import { MobileMenu } from './MobileMenu';
 
 export const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [isOpenMenuDown, setIsOpenMenuDown] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleMouseEnter = () => {
@@ -25,11 +28,12 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="h-[60px] w-full flex items-center justify-between pl-[30px] border-b border-white/15 relative z-20">
+    <header className={` transition-colors duration-200 min-h-[60px] w-full flex items-center justify-between pl-[30px] border-b border-white/15 relative z-20 ${isOpenMenu ? 'bg-[#101010]' : 'bg-transparent'}`}>
       <Link href="/">
-        <Image src="/img/Logo.webp" width={140} height={16} alt="logo" />
+        <Image className={`${isOpenMenu ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`} src="/img/Logo.webp" width={140} height={16} alt="logo" />
       </Link>
-      <nav className="absolute left-1/2 -translate-x-1/2">
+      <MobileMenu setIsOpenMenu={() => setIsOpenMenu(!isOpenMenu)} isOpenMenu={isOpenMenu} />
+      <nav className="absolute left-1/2 -translate-x-1/2 max-xl:hidden">
         <ul className="flex gap-[30px] items-center">
           <li
             onMouseEnter={handleMouseEnter}
@@ -37,7 +41,7 @@ export const Header: React.FC = () => {
             className="flex gap-[10px] items-center relative cursor-pointer">
             <p className="text-[14px] leading-[20px]">Каталог услуг</p>
             <svg
-              className={`${open ? 'rotate-180' : ''} transition-all duration-200`}
+              className={`${isOpenMenu ? 'rotate-180' : ''} transition-all duration-200`}
               xmlns="http://www.w3.org/2000/svg"
               width="13"
               height="12"
@@ -75,7 +79,7 @@ export const Header: React.FC = () => {
           </li>
         </ul>
       </nav>
-      <div className="flex">
+      <div className="flex max-xl:hidden">
         <button className="border-l hover:bg-white/15 transition-all duration-300 border-white/15 font-[500] text-[14px] leading-[20px] h-[60px] w-[130px] flex justify-center items-center">
           Связаться
         </button>
