@@ -3,6 +3,9 @@
 import Image from 'next/image';
 import { DropDownMenu } from './DropDownMenu';
 import { useRef, useState } from 'react';
+import Link from 'next/link';
+
+import { Link as ScrollLink } from 'react-scroll';
 
 export const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -23,9 +26,9 @@ export const Header: React.FC = () => {
 
   return (
     <header className="h-[60px] w-full flex items-center justify-between pl-[30px] border-b border-white/15 relative z-20">
-      <div>
+      <Link href="/">
         <Image src="/img/Logo.webp" width={140} height={16} alt="logo" />
-      </div>
+      </Link>
       <nav className="absolute left-1/2 -translate-x-1/2">
         <ul className="flex gap-[30px] items-center">
           <li
@@ -50,10 +53,22 @@ export const Header: React.FC = () => {
             {open && <DropDownMenu />}
           </li>
           <li>
-            <p className="text-[14px] leading-[20px]">Программы</p>
+            <ScrollLink
+              className="text-[14px] leading-[20px] cursor-pointer"
+              smooth={true}
+              duration={500}
+              to="programs">
+              Программы
+            </ScrollLink>
           </li>
           <li>
-            <p className="text-[14px] leading-[20px]">Аренда СПА</p>
+            <ScrollLink
+              className="text-[14px] leading-[20px] cursor-pointer"
+              to="spa"
+              smooth={true}
+              duration={500}>
+              Наша СПА
+            </ScrollLink>
           </li>
           <li>
             <p className="text-[14px] leading-[20px]">Меню ресторана</p>
