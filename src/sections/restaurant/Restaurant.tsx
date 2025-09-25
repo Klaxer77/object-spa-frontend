@@ -20,7 +20,7 @@ export const Restaurant: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="bg-[#101010] pt-[110px] mt-[100px]">
+    <section className="bg-[#101010] pt-[110px]">
       <Container>
         <div className="flex justify-between relative">
           <div className="absolute bg-[#1C1D1B] flex h-[190px] max-w-[420px] w-full top-[220px] z-50">
