@@ -2,7 +2,7 @@
 
 import { Checkbox } from '@/shared/uikit';
 import Image from 'next/image';
-import { SpaItemProps } from './type';
+import { RoomItemProps } from './type';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -17,7 +17,7 @@ export interface ServiceItem {
   price: number;
 }
 
-export const SpaItem: React.FC<SpaItemProps> = ({ title, images, time }) => {
+export const RoomItem: React.FC<RoomItemProps> = ({ title, images, time }) => {
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [additionalServices, setAdditionalServices] = useState<ServiceItem[]>([]);
@@ -195,10 +195,8 @@ export const SpaItem: React.FC<SpaItemProps> = ({ title, images, time }) => {
       <div className="py-[30px] flex-1">
         <p className="text-[30px] font-[500] leading-[36px] mb-[30px]">{title}</p>
 
-        <p className="mb-[20px] font-[500] leading-[24px] text-white/70">Выберите время:</p>
-
         {/* Время */}
-        <div className="grid gap-[10px] grid-cols-3 max-w-[810px]">
+        <div className="grid gap-[10px] grid-cols-1 max-w-[810px]">
           {time.map((item) => {
             const isActive = selectedId === item.id;
             return (
@@ -239,9 +237,7 @@ export const SpaItem: React.FC<SpaItemProps> = ({ title, images, time }) => {
           })}
         </div>
 
-        <p className="my-[20px] font-[500] leading-[24px] text-white/70">
-          Стоимость продления на каждый следующий час равна 7 000₽.
-        </p>
+        <p className="my-[20px] font-[500] leading-[24px] text-white/70">Доп. текст</p>
 
         <div className="flex gap-[10px] items-center max-w-[810px]">
           <button
@@ -302,7 +298,7 @@ export const SpaItem: React.FC<SpaItemProps> = ({ title, images, time }) => {
         />
 
         <ModalForm
-        currentImage={currentImage}
+          currentImage={currentImage}
           isOpen={isOpenModalForm}
           setIsOpen={setIsOpenModalForm}
           totalPrice={totalPrice}

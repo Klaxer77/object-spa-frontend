@@ -1,4 +1,5 @@
 export interface ModalProps {
+  currentImage: string;
   isOpen: boolean;
   setIsOpen: (open: boolean) => void;
   totalPrice: number;

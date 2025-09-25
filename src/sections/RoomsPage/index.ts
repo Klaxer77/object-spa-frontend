@@ -1,0 +1,1 @@
+export { RoomsPageSection } from './ui/RoomsPageSection';

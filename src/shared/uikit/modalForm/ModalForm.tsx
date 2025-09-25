@@ -12,6 +12,7 @@ export const ModalForm: React.FC<ModalProps> = ({
   totalPrice,
   additionalServices,
   setAdditionalServices,
+  currentImage,
 }) => {
   const [canScroll, setCanScroll] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -85,16 +86,16 @@ export const ModalForm: React.FC<ModalProps> = ({
       animate={{ opacity: 1 }}
       transition={{ duration: 0.2 }}
       className="fixed inset-0 flex items-center justify-center z-[999]">
-      {/* Overlay */}
+ 
       <div className="absolute inset-0 bg-black/50" onClick={() => setIsOpen(false)} />
 
-      {/* Modal content */}
+
       <motion.div
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.2 }}
         className="relative z-10 bg-[#1E1F1C] max-w-[880px] w-full max-h-[95vh] overflow-y-auto [&::-webkit-scrollbar]:hidden">
-        {/* Header */}
+    
         <div className="px-[40px] py-[30px] flex justify-between items-center relative">
           <p className="font-[500] text-[30px] leading-[36px]">
             Заполните форму и мы сразу
@@ -123,53 +124,53 @@ export const ModalForm: React.FC<ModalProps> = ({
           </button>
         </div>
 
-        {/* Image */}
+    
         <div className="relative overflow-hidden w-full h-[100px]">
-          <Image fill src="/img/dopImg.webp" alt="picture" className="object-cover" />
+          <Image fill src={currentImage} alt="picture" className="object-cover" />
         </div>
 
-        {/* Total & Scrollable Services */}
-        <div className="flex justify-between gap-[120px] mt-[32px] px-[40px] mb-[30px] w-full">
-          <div>
-            <p className="font-[500] leading-[24px]">Итог:</p>
-            <p className="font-[500] text-[30px] leading-[36px]">
-              {totalPrice.toLocaleString('ru-RU')} ₽
-            </p>
-          </div>
+        {totalPrice > 0 && (
+          <div className="flex justify-between gap-[120px] mt-[32px] px-[40px] mb-[30px] w-full">
+            <div>
+              <p className="font-[500] leading-[24px]">Итог:</p>
+              <p className="font-[500] text-[30px] leading-[36px]">
+                {totalPrice.toLocaleString('ru-RU')} ₽
+              </p>
+            </div>
 
-          {/* Контейнер для услуг - теперь корректно работает со скроллом */}
-          <div className={`relative ${canScroll ? 'max-w-[500px] flex-1' : 'flex-none'}`}>
-            <div
-              ref={scrollRef}
-              onMouseDown={onMouseDown}
-              className={`flex gap-[20px] [scrollbar-width:0] [&::-webkit-scrollbar]:hidden overflow-x-auto select-none py-2 ${
-                canScroll ? 'cursor-grab max-w-[500px]' : 'cursor-default flex-wrap justify-end'
-              }`}
-              style={{
-                overflowX: canScroll ? 'auto' : 'hidden',
-                flexWrap: canScroll ? 'nowrap' : 'wrap',
-              }}>
-              {additionalServices.map((item, i) => (
-                <div
-                  key={i}
-                  className="flex justify-center items-center bg-[#262724] border border-white/50 h-[50px] px-[20px] relative min-w-[150px] overflow-visible flex-shrink-0">
-                  <button
-                    onClick={() =>
-                      setAdditionalServices((prev) => prev.filter((s) => s.title !== item.title))
-                    }
-                    className="absolute -right-2 -top-2 w-[20px] h-[20px] flex justify-center items-center bg-[#141412] rounded-[4px] border border-[#333232] hover:bg-[#222] transition-colors z-10">
-                    ×
-                  </button>
-                  <p className="font-[500] text-[14px] leading-[20px] whitespace-nowrap">
-                    {item.title}
-                  </p>
-                </div>
-              ))}
+         
+            <div className={`relative ${canScroll ? 'max-w-[500px] flex-1' : 'flex-none'}`}>
+              <div
+                ref={scrollRef}
+                onMouseDown={onMouseDown}
+                className={`flex gap-[20px] [scrollbar-width:0] [&::-webkit-scrollbar]:hidden overflow-x-auto select-none py-2 ${
+                  canScroll ? 'cursor-grab max-w-[500px]' : 'cursor-default flex-wrap justify-end'
+                }`}
+                style={{
+                  overflowX: canScroll ? 'auto' : 'hidden',
+                  flexWrap: canScroll ? 'nowrap' : 'wrap',
+                }}>
+                {additionalServices.map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex justify-center items-center bg-[#262724] border border-white/50 h-[50px] px-[20px] relative min-w-[150px] overflow-visible flex-shrink-0">
+                    <button
+                      onClick={() =>
+                        setAdditionalServices((prev) => prev.filter((s) => s.title !== item.title))
+                      }
+                      className="absolute -right-2 -top-2 w-[20px] h-[20px] flex justify-center items-center bg-[#141412] rounded-[4px] border border-[#333232] hover:bg-[#222] transition-colors z-10">
+                      ×
+                    </button>
+                    <p className="font-[500] text-[14px] leading-[20px] whitespace-nowrap">
+                      {item.title}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
-        {/* Form */}
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col gap-[10px] w-full px-[40px] mt-[20px]">
@@ -258,7 +259,7 @@ export const ModalForm: React.FC<ModalProps> = ({
           </button>
         </form>
 
-        <p className='text-center text-[14px] font-[500] leading-[20px] text-white/50 pt-[20px] pb-[30px]'>
+        <p className="text-center text-[14px] font-[500] leading-[20px] text-white/50 pt-[20px] pb-[30px]">
           Нажимая кнопку &quot;Отправить&quot;, вы даете согласие на обработку{' '}
           <span className="text-white underline">персональных данных.</span>
         </p>

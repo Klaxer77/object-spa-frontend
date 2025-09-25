@@ -18,9 +18,9 @@ export const DropDownMenu: React.FC = () => {
       </Link>
       <Link
         className={`${
-          path === '' ? 'bg-white text-black' : ''
+          path === '/rooms' ? 'bg-white text-black' : ''
         } transition-colors duration-300 w-[150px] h-[45px] border border-t-0 border-white/50 pl-[16px] flex items-center hover:bg-white/15 hover:text-white`}
-        href="/">
+        href="/rooms">
         Аренда номера
       </Link>
       <Link
