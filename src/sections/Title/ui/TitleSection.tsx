@@ -13,7 +13,7 @@ const fadeIn = (delay: number) => ({
 
 export const TitleSection: React.FC = () => {
   return (
-    <section className="mt-[50px] relative z-[0] overflow-hidden">
+    <section className="mt-[50px] relative z-[0] overflow-hidden max-lg:pt-[10px]">
       <motion.div
         variants={fadeIn(0.1)}
         initial="hidden"
@@ -109,7 +109,7 @@ export const TitleSection: React.FC = () => {
             </defs>
           </svg>
 
-          <h1 className="text-[50px] text-center leading-[120%] uppercase max-2xl:text-[36px]">
+          <h1 className="text-[50px] text-center leading-[120%] uppercase max-2xl:text-[36px] max-[350px]:!text-[30px]">
             Место для тех – кто ценит качественный отдых.
           </h1>
 

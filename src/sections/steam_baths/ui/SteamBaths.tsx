@@ -26,7 +26,7 @@ export const SteamBaths: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="max-w-[630px] w-full text-[50px] leading-[120%] mb-[55px] z-10"
+            className="max-w-[630px] w-full text-[50px] leading-[120%] mb-[55px] max-sm:mb-[24px] z-10 max-lg:text-[36px] max-sm:text-[30px] max-sm:max-w-[400px]"
             id="steam-title">
             Римская и Русская парная с бассейном в Перми
           </motion.h2>
@@ -34,7 +34,7 @@ export const SteamBaths: React.FC = () => {
 
         {/* Линия */}
         <motion.div
-          className="absolute h-[1px] bg-white/15"
+          className="absolute h-[1px] bg-white/15 max-2xl:!left-[580px] max-lg:!top-[157px] max-lg:!left-[400px] max-sm:hidden"
           style={{
             top: '186px',
             left: 'calc(50% - 120px + 20px)',
@@ -46,8 +46,8 @@ export const SteamBaths: React.FC = () => {
           viewport={{ once: true }}
         />
 
-        <div className="flex items-center">
-          <div className="max-w-[590px]">
+        <div className="flex items-center max-2xl:flex-col max-w-[590px] w-full">
+          <div className="max-w-[590px] w-full">
             <div>
               <div className="relative w-full h-[480px] overflow-hidden flex flex-col justify-between">
                 <p className="absolute z-10 p-[26px] text-white font-[500] text-[30px]">
@@ -60,10 +60,10 @@ export const SteamBaths: React.FC = () => {
                   loop
                   onSlideChange={(swiper) => setActiveIndexRim(swiper.realIndex)}
                   onSwiper={(swiper) => (swiperRefRim.current = swiper)}
-                  className="w-full h-full">
+                  className="w-full h-full ">
                   {SLIDES_BG_RIM.map((src, i) => (
                     <SwiperSlide key={i}>
-                      <div className="relative h-[480px] w-[590px]">
+                      <div className="relative h-[480px] max-w-[590px] w-full">
                         <Image fill src={src} alt={`slide-${i}`} className="object-cover" />
                       </div>
                     </SwiperSlide>
@@ -83,8 +83,8 @@ export const SteamBaths: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-black p-[26px]">
-              <p className="mb-[58px] font-[500] leading-[24px] text-white/70">
+            <div className="bg-black p-[26px] max-sm:p-[15px]">
+              <p className="mb-[58px] font-[500] leading-[24px] text-white/70 max-sm:text-[12px] max-sm:mb-[20px] max-sm:leading-[18px]">
                 Единственная в Пермском крае парная выполненная из декоративной штукатурки,
                 купольный потолок и округлые стены позволят пару максимально равномерно
                 распределяться по помещению и эффективно мягко прогревать тело.
@@ -94,6 +94,7 @@ export const SteamBaths: React.FC = () => {
                   Забронировать
                 </button>
                 <svg
+                  className="max-sm:w-[90px] max-sm:h-[12px]"
                   xmlns="http://www.w3.org/2000/svg"
                   xmlnsXlink="http://www.w3.org/1999/xlink"
                   width={139}
@@ -136,9 +137,9 @@ export const SteamBaths: React.FC = () => {
             </div>
           </div>
 
-          <div className="w-full border-y border-white/15 bg-transparent h-[120px]" />
+          <div className="w-[100px] shrink-0 border-y border-white/15 bg-transparent h-[120px] max-2xl:border-y-0 max-2xl:border-x max-2xl:w-[260px] max-sm:h-[50px]" />
 
-          <div className="max-w-[590px]">
+          <div className="max-w-[590px] w-full">
             <div>
               <div className="relative w-full h-[480px] overflow-hidden flex flex-col justify-between">
                 <p className="absolute z-10 p-[26px] text-white font-[500] text-[30px]">
@@ -154,7 +155,7 @@ export const SteamBaths: React.FC = () => {
                   className="w-full h-full">
                   {SLIDES_BG_RUS.map((src, i) => (
                     <SwiperSlide key={i}>
-                      <div className="relative h-[480px] w-[590px]">
+                      <div className="relative h-[480px] max-w-[590px] w-full">
                         <Image fill src={src} alt={`slide-${i}`} className="object-cover" />
                       </div>
                     </SwiperSlide>
@@ -175,7 +176,7 @@ export const SteamBaths: React.FC = () => {
               </div>
             </div>
             <div className="bg-black p-[26px]">
-              <p className="mb-[58px] font-[500] leading-[24px] text-white/70">
+              <p className="mb-[58px] font-[500] leading-[24px] text-white/70 max-sm:text-[12px] max-sm:mb-[20px] max-sm:leading-[18px]">
                 Единственная в Пермском крае парная выполненная из декоративной штукатурки,
                 купольный потолок и округлые стены позволят пару максимально равномерно
                 распределяться по помещению и эффективно мягко прогревать тело.
@@ -185,6 +186,7 @@ export const SteamBaths: React.FC = () => {
                   Забронировать
                 </button>
                 <svg
+                  className="max-sm:w-[90px] max-sm:h-[12px]"
                   xmlns="http://www.w3.org/2000/svg"
                   xmlnsXlink="http://www.w3.org/1999/xlink"
                   width={139}

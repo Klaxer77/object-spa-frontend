@@ -20,19 +20,19 @@ export const Restaurant: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="bg-[#101010] pt-[110px]">
+    <section className="bg-[#101010] pt-[110px] overflow-hidden max-sm:pt-[70px]">
       <Container>
-        <div className="flex justify-between relative">
-          <div className="absolute bg-[#1C1D1B] flex h-[190px] max-w-[420px] w-full top-[220px] z-50">
-            <div className="relative w-[190px] h-full overflow-hidden shrink-0">
+        <div className="flex justify-between relative gap-[40px] flex-wrap">
+          <div className="absolute bg-[#1C1D1B] flex h-[190px] max-sm:h-[130px] max-w-[420px] max-sm:max-w-[285px] w-full top-[220px] z-50 max-[1142px]:right-0 max-lg:!right-auto max-lg:left-1/2 max-lg:-translate-x-1/2 max-lg:top-auto max-lg:-bottom-[120px] max-sm:-bottom-[70px]">
+            <div className="relative w-[190px] max-sm:w-[130px] h-full overflow-hidden shrink-0">
               <Image className="object-cover" fill alt="picture" src="/img/restItem.webp" />
             </div>
-            <div className="pl-[20px] pr-[14px] py-[14px] flex flex-col justify-between w-full">
+            <div className="pl-[20px] pr-[14px] py-[14px] flex flex-col justify-between w-full max-sm:pl-[13px] max-sm:p-[10px]">
               <div>
-                <p className="text-white/50 leading-[23px] mb-[8px]">Спецпредложение</p>
-                <p className="font-[500] text-[25px] leading-[120%]">VIP зона</p>
+                <p className="text-white/50 leading-[23px] mb-[8px] max-sm:text-[12px] max-sm:mb-[4px]">Спецпредложение</p>
+                <p className="font-[500] text-[25px] leading-[120%] max-sm:text-[16px]">VIP зона</p>
               </div>
-              <button className="border hover:bg-white hover:text-black transition-all duration-300 border-white h-[45px] w-full text-[14px] leading-[20px]">
+              <button className="border hover:bg-white hover:text-black transition-all duration-300 border-white h-[45px] max-sm:h-[35px] w-full text-[14px] leading-[20px]">
                 Забронировать
               </button>
             </div>
@@ -42,11 +42,11 @@ export const Restaurant: React.FC = () => {
             whileInView={{ width: '100%' }}
             transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }}
             viewport={{ once: true }}
-            className="bg-white/15 h-[1px] w-full top-[45px] absolute left-[235px] max-w-[570px] z-0"
+            className="bg-white/15 h-[1px] w-full top-[45px] max-w-[570px] absolute left-[235px] z-0 max-[1142px]:max-w-full max-sm:left-[150px] max-sm:top-[28px]"
           />
           <div>
-            <h2 className="text-[50px] leading-[110%] mb-[20px]">Ресторан</h2>
-            <p className="max-w-[542px] font-[500] leading-[150%] text-white/50">
+            <h2 className="text-[50px] leading-[110%] mb-[20px] max-sm:text-[30px]">Ресторан</h2>
+            <p className="max-w-[542px] font-[500] leading-[150%] text-white/50 mb-[40px] max-sm:text-[14px]">
               Роскошное спа-пространство, ресторан авторской кухни, стильные номера. Бутик-отель
               имеет категорию четыре звезды, расположен в черте города и предлагает круглосуточное
               обслуживание премиум уровня.
@@ -57,8 +57,8 @@ export const Restaurant: React.FC = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.3, ease: 'easeOut', delay: 0.7 }}
             viewport={{ once: true }}
-            className="border border-b-0 border-white/15 bg-[#1B1B1B] pt-[40px] px-[50px] pb-[45px] max-w-[480px] w-full mt-[-35px] relative z-10">
-            <p className="text-[30px] leading-[120%]">
+            className="max-[1142px]:mb-[100px] border border-b-0 max-[1142px]:border-b border-white/15 bg-[#1B1B1B] pt-[40px] px-[50px] pb-[45px] max-w-[480px] w-full mt-[-35px] relative z-10 max-sm:p-[30px]">
+            <p className="text-[30px] leading-[120%] max-sm:text-[20px]">
               Наслаждайтесь европейской кухней в эксклюзивном пермском ресторане
             </p>
             <button className="mt-[40px] border border-transparent hover:bg-transparent hover:text-white hover:border-white/15 transition-all duration-300 bg-white text-black w-[142px] h-[40px] text-[14px] font-[500] leading-[20px]">
@@ -68,7 +68,7 @@ export const Restaurant: React.FC = () => {
         </div>
       </Container>
 
-      <div className="relative w-full h-[390px] overflow-hidden flex justify-center items-center">
+      <div className="relative w-full h-[390px] max-sm:h-[300px] overflow-hidden flex justify-center items-center">
         <Swiper
           slidesPerView={1}
           loop
