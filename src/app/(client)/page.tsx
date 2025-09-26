@@ -9,13 +9,13 @@ import { TitleSection } from '@/sections/Title';
 export default function Home() {
   return (
     <>
-      {/* <TitleSection />
+      <TitleSection />
       <MainSliderSection />
       <Restaurant />
       <SteamBaths />
       <SpaSection />
       <Programs />
-      <Rooms /> */}
+      <Rooms />
     </>
   );
 }

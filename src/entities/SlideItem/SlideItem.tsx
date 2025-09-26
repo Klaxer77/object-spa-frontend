@@ -2,10 +2,10 @@ import Image from 'next/image';
 import { SlideItemProps } from './type';
 import Link from 'next/link';
 
-export const SlideItem: React.FC<SlideItemProps> = ({ title, image, link }) => {
+export const SlideItem: React.FC<SlideItemProps> = ({ title, image, link, id }) => {
   return (
-    <div className="max-w-[420px] w-full min-h-[190px] flex">
-      <div className="relative w-[190px] h-[190px] overflow-hidden">
+    <div className={`max-w-[420px] w-full min-h-[190px] flex ${id === 3 && 'max-sm:mr-[15px] mr-[40px]'}`}>
+      <div className="relative w-[190px] h-[190px] overflow-hidden shrink-0">
         <Image fill src={image} alt="item" />
       </div>
       <div className="bg-[#1C1D1B] min-w-[230px] pl-[20px] py-[14px] pr-[14px] flex flex-col justify-between items-start">
