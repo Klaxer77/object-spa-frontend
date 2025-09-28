@@ -55,7 +55,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpenMenu, setIsOpenMen
             <div>
               <div className="flex flex-col min-h-[60px] w-full transition-all duration-200">
                 <div
-                  className="flex justify-between items-center w-full h-[60px] pr-[20px] border border-b-0 border-t-0 border-l-0 border-white/15"
+                  className={`flex justify-between items-center w-full h-[60px] pr-[20px] ${isOpenDropDown ? 'border-b' : 'border-b-0'} border-white/15 transition-all duration-200`}
                   onClick={() => setIsDropDown(!isOpenDropDown)}>
                   <p className="pl-[20px] font-[500]">Каталог услуг</p>
                   <svg
@@ -124,7 +124,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpenMenu, setIsOpenMen
                 smooth
                 duration={500}
                 to="programs"
-                className="flex items-center pl-[20px] h-[60px] w-full border border-white/15 border-r-0 font-[500]"
+                className="flex items-center pl-[20px] h-[60px] w-full border border-white/15 border-x-0 font-[500]"
                 href="/">
                 Программы отдыха
               </ScrollLink>
@@ -133,7 +133,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpenMenu, setIsOpenMen
                   setIsDropDown(false);
                   setIsOpenMenu(false);
                 }}
-                className="flex items-center pl-[20px] h-[60px] w-full border border-t-0 border-r-0 border-white/15 font-[500]"
+                className="flex items-center pl-[20px] h-[60px] w-full border border-t-0 border-x-0 border-white/15 font-[500]"
                 href="/spa">
                 Аренда СПА
               </Link>
@@ -142,7 +142,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpenMenu, setIsOpenMen
                   setIsDropDown(false);
                   setIsOpenMenu(false);
                 }}
-                className="flex items-center pl-[20px] h-[60px] w-full border border-t-0 border-r-0 border-white/15 font-[500]"
+                className="flex items-center pl-[20px] h-[60px] w-full border border-t-0 border-x-0 border-white/15 font-[500]"
                 href="/">
                 Меню ресторана
               </Link>
