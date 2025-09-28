@@ -50,8 +50,8 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpenMenu, setIsOpenMen
           initial={{ height: 0 }}
           animate={{ height: 'auto' }}
           transition={{ duration: 0.3 }}
-          className="fixed left-0 top-[60px] bg-[#101010] w-full overflow-hidden">
-          <div className="h-[calc(100svh-60px)] flex flex-col justify-between gap-[60px] pb-[40px] overflow-y-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          className="fixed left-0 bottom-0 top-[60px] bg-[#101010] w-full pb-[40px] overflow-y-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex flex-col justify-between gap-[60px]">
             <div>
               <div className="flex flex-col min-h-[60px] w-full transition-all duration-200">
                 <div
