@@ -26,7 +26,7 @@ export const SteamBaths: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="max-w-[630px] w-full text-[50px] leading-[120%] mb-[55px] max-sm:mb-[24px] z-10 max-lg:text-[36px] max-sm:text-[30px] max-sm:max-w-[400px]"
+            className="max-w-[630px] w-full text-[50px] leading-[120%] mb-[55px] max-sm:mb-[24px] z-10 max-lg:text-[36px] max-sm:text-[20px] max-sm:max-w-[260px]"
             id="steam-title">
             Римская и Русская парная с бассейном в Перми
           </motion.h2>

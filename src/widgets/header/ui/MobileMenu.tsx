@@ -51,11 +51,11 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpenMenu, setIsOpenMen
           animate={{ height: 'auto' }}
           transition={{ duration: 0.3 }}
           className="fixed left-0 top-[60px] bg-[#101010] w-full overflow-hidden">
-          <div className="min-h-[calc(100svh-60px)] flex flex-col justify-between gap-[60px] pb-[40px] overflow-y-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="h-[calc(100svh-60px)] flex flex-col justify-between gap-[60px] pb-[40px] overflow-y-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <div>
               <div className="flex flex-col min-h-[60px] w-full transition-all duration-200">
                 <div
-                  className="flex justify-between items-center w-full h-[60px] pr-[20px] border border-t-0 border-l-0 border-white/15"
+                  className="flex justify-between items-center w-full h-[60px] pr-[20px] border border-b-0 border-t-0 border-l-0 border-white/15"
                   onClick={() => setIsDropDown(!isOpenDropDown)}>
                   <p className="pl-[20px] font-[500]">Каталог услуг</p>
                   <svg
