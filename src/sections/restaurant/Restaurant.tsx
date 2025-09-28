@@ -1,6 +1,7 @@
 'use client';
 
 import { Container } from '@/shared/uikit';
+import { useScreenWidth } from '@/shared/utils/useScreenWidth';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
@@ -18,6 +19,7 @@ const SLIDES_BG = [
 export const Restaurant: React.FC = () => {
   const swiperRef = useRef<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const width = useScreenWidth()
 
   return (
     <section className="bg-[#101010] pt-[110px] overflow-hidden max-sm:pt-[70px]">
@@ -55,7 +57,7 @@ export const Restaurant: React.FC = () => {
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.3, ease: 'easeOut', delay: 0.7 }}
+            transition={{ duration: 0.3, ease: 'easeOut', delay: width < 1142 ? 0.1 : 0.7 }}
             viewport={{ once: true }}
             className="max-[1142px]:mb-[100px] border border-b-0 max-[1142px]:border-b border-white/15 bg-[#1B1B1B] pt-[40px] px-[50px] pb-[45px] max-w-[480px] w-full mt-[-35px] relative z-10 max-sm:p-[30px]">
             <p className="text-[30px] leading-[120%] max-sm:text-[20px]">
