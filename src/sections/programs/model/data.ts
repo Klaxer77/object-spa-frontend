@@ -1,3 +1,10 @@
+export interface ProgramCard {
+  id: string | number;
+  title: string;
+  text: string;
+  time: string;
+}
+
 export const HE_DATA = [
   {
     id: 1,

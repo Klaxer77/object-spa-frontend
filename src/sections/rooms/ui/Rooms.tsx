@@ -26,7 +26,7 @@ export const Rooms: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="max-w-[630px] w-full text-[50px] leading-[120%] mb-[55px] z-10"
+            className="max-w-[630px] w-full text-[50px] leading-[120%] mb-[55px] z-10 max-sm:text-[20px] max-sm:mb-[24px]"
             id="steam-title">
             Номера премиум-класса
           </motion.h2>
@@ -34,10 +34,10 @@ export const Rooms: React.FC = () => {
 
         {/* Линия */}
         <motion.div
-          className="absolute h-[1px] bg-white/15"
+          className="absolute h-[1px] bg-white/15 max-2xl:!left-[650px] max-md:hidden"
           style={{
-            top: '126px',
-            left: 'calc(50% - 50px + 20px)',
+            top: '127px',
+            left: 'calc(50% - 60px + 20px)',
             right: 0,
           }}
           initial={{ width: 0 }}
@@ -46,13 +46,17 @@ export const Rooms: React.FC = () => {
           viewport={{ once: true }}
         />
 
-        <div className="flex items-center">
-          <div className="max-w-[590px]">
+        <div className="flex items-center max-2xl:flex-col max-w-full w-full">
+          <div className="max-w-[590px] w-full flex-shrink">
             <div>
-              <div className="relative w-full h-[480px] overflow-hidden flex flex-col justify-between">
+              <div className="relative w-full h-[480px] max-sm:h-[460px] overflow-hidden flex flex-col justify-between">
                 <div className="absolute bottom-[26px] z-10 p-[26px]">
-                  <p className='text-[30px] leading-[120%] mb-[10px]'>2 номера</p>
-                  <p className="text-white text-[50px] leading-[50px]">Люкс</p>
+                  <p className="text-[30px] leading-[120%] mb-[10px] max-sm:text-[16px] max-sm:leading-[24px] max-sm:mb-0">
+                    2 номера
+                  </p>
+                  <p className="text-white text-[50px] leading-[50px] max-sm:text-[20px] max-sm:leading-[30px]">
+                    Люкс
+                  </p>
                 </div>
                 <Swiper
                   modules={[Autoplay]}
@@ -64,7 +68,7 @@ export const Rooms: React.FC = () => {
                   className="w-full h-full">
                   {SLIDES_BG_RIM.map((src, i) => (
                     <SwiperSlide key={i}>
-                      <div className="relative h-[480px] w-[590px]">
+                      <div className="relative h-[480px] max-sm:h-[460px] max-w-full w-full">
                         <Image fill src={src} alt={`slide-${i}`} className="object-cover" />
                       </div>
                     </SwiperSlide>
@@ -84,17 +88,16 @@ export const Rooms: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-black p-[26px]">
-              <p className="mb-[58px] font-[500] leading-[24px] text-white/70">
-                Единственная в Пермском крае парная выполненная из декоративной штукатурки,
-                купольный потолок и округлые стены позволят пару максимально равномерно
-                распределяться по помещению и эффективно мягко прогревать тело.
+            <div className="bg-black p-[26px] max-sm:p-[15px]">
+              <p className="mb-[58px] font-[500] leading-[24px] text-white/70 max-sm:text-[12px] max-sm:leading-[18px] max-sm:mb-[24px]">
+                Заезд в номер осуществляется с 14:00, выезд из номера не поздее 12:00 следующего дня
               </p>
               <div className="flex justify-between items-end">
                 <button className="border border-transparent hover:bg-transparent hover:text-white hover:border-white/15 transition-all duration-300 bg-white text-black w-[190px] h-[40px] text-[14px] font-[700] leading-[20px]">
                   Забронировать номер
                 </button>
                 <svg
+                  className="max-sm:w-[90px] max-sm:h-[12px]"
                   xmlns="http://www.w3.org/2000/svg"
                   xmlnsXlink="http://www.w3.org/1999/xlink"
                   width={139}
@@ -137,26 +140,30 @@ export const Rooms: React.FC = () => {
             </div>
           </div>
 
-          <div className="w-full border-y border-white/15 bg-transparent h-[120px]" />
+          <div className="w-[100px] shrink-0 border-y border-white/15 bg-transparent h-[120px] max-2xl:border-y-0 max-2xl:border-x max-2xl:w-[260px] max-sm:h-[50px]" />
 
-          <div className="max-w-[590px]">
+          <div className="max-w-[590px] w-full flex-shrink">
             <div>
-              <div className="relative w-full h-[480px] overflow-hidden flex flex-col justify-between">
+              <div className="relative w-full h-[480px] max-sm:h-[460px] overflow-hidden flex flex-col justify-between">
                 <div className="absolute bottom-[26px] z-10 p-[26px]">
-                  <p className='text-[30px] leading-[120%] mb-[10px]'>2 номера</p>
-                  <p className="text-white text-[50px] leading-[50px]">Бизнес</p>
+                  <p className="text-[30px] leading-[120%] mb-[10px] max-sm:text-[16px] max-sm:leading-[24px] max-sm:mb-0">
+                    2 номера
+                  </p>
+                  <p className="text-white text-[50px] leading-[50px] max-sm:text-[20px] max-sm:leading-[30px]">
+                    Бизнес
+                  </p>
                 </div>
                 <Swiper
                   modules={[Autoplay]}
                   autoplay={{ delay: 3000, disableOnInteraction: false }}
                   slidesPerView={1}
                   loop
-                  onSlideChange={(swiper) => setActiveIndexRus(swiper.realIndex)}
-                  onSwiper={(swiper) => (swiperRefRus.current = swiper)}
+                  onSlideChange={(swiper) => setActiveIndexRim(swiper.realIndex)}
+                  onSwiper={(swiper) => (swiperRefRim.current = swiper)}
                   className="w-full h-full">
                   {SLIDES_BG_RUS.map((src, i) => (
                     <SwiperSlide key={i}>
-                      <div className="relative h-[480px] w-[590px]">
+                      <div className="relative h-[480px] max-sm:h-[460px] max-w-full w-full">
                         <Image fill src={src} alt={`slide-${i}`} className="object-cover" />
                       </div>
                     </SwiperSlide>
@@ -169,24 +176,23 @@ export const Rooms: React.FC = () => {
                     <div
                       key={i}
                       className={`h-[4px] rounded-[2px] transition-all duration-300 cursor-pointer relative z-10 ${
-                        i === activeIndexRus ? 'bg-white w-[35px]' : 'bg-white opacity-50 w-[12px]'
+                        i === activeIndexRim ? 'bg-white w-[35px]' : 'bg-white opacity-50 w-[12px]'
                       }`}
-                      onClick={() => swiperRefRus.current?.slideToLoop(i)}></div>
+                      onClick={() => swiperRefRim.current?.slideToLoop(i)}></div>
                   ))}
                 </div>
               </div>
             </div>
-            <div className="bg-black p-[26px]">
-              <p className="mb-[58px] font-[500] leading-[24px] text-white/70">
-                Единственная в Пермском крае парная выполненная из декоративной штукатурки,
-                купольный потолок и округлые стены позволят пару максимально равномерно
-                распределяться по помещению и эффективно мягко прогревать тело.
+            <div className="bg-black p-[26px] max-sm:p-[15px]">
+              <p className="mb-[58px] font-[500] leading-[24px] text-white/70 max-sm:text-[12px] max-sm:leading-[18px] max-sm:mb-[24px]">
+                Заезд в номер осуществляется с 14:00, выезд из номера не поздее 12:00 следующего дня
               </p>
               <div className="flex justify-between items-end">
                 <button className="border border-transparent hover:bg-transparent hover:text-white hover:border-white/15 transition-all duration-300 bg-white text-black w-[190px] h-[40px] text-[14px] font-[700] leading-[20px]">
                   Забронировать номер
                 </button>
                 <svg
+                  className="max-sm:w-[90px] max-sm:h-[12px]"
                   xmlns="http://www.w3.org/2000/svg"
                   xmlnsXlink="http://www.w3.org/1999/xlink"
                   width={139}

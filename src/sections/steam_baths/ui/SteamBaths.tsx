@@ -46,10 +46,10 @@ export const SteamBaths: React.FC = () => {
           viewport={{ once: true }}
         />
 
-        <div className="flex items-center max-2xl:flex-col max-w-[590px] w-full">
-          <div className="max-w-[590px] w-full">
+        <div className="flex items-center max-2xl:flex-col max-w-full w-full">
+          <div className="max-w-[590px] w-full flex-shrink">
             <div>
-              <div className="relative w-full h-[480px] overflow-hidden flex flex-col justify-between">
+              <div className="relative w-full h-[480px] max-sm:h-[460px] overflow-hidden flex flex-col justify-between">
                 <p className="absolute z-10 p-[26px] text-white font-[500] text-[30px]">
                   Римская парная
                 </p>
@@ -63,7 +63,7 @@ export const SteamBaths: React.FC = () => {
                   className="w-full h-full ">
                   {SLIDES_BG_RIM.map((src, i) => (
                     <SwiperSlide key={i}>
-                      <div className="relative h-[480px] max-w-[590px] w-full">
+                      <div className="relative h-[480px] max-sm:h-[460px] max-w-full w-full">
                         <Image fill src={src} alt={`slide-${i}`} className="object-cover" />
                       </div>
                     </SwiperSlide>
@@ -139,9 +139,9 @@ export const SteamBaths: React.FC = () => {
 
           <div className="w-[100px] shrink-0 border-y border-white/15 bg-transparent h-[120px] max-2xl:border-y-0 max-2xl:border-x max-2xl:w-[260px] max-sm:h-[50px]" />
 
-          <div className="max-w-[590px] w-full">
+          <div className="max-w-[590px] w-full flex-shrink">
             <div>
-              <div className="relative w-full h-[480px] overflow-hidden flex flex-col justify-between">
+              <div className="relative w-full h-[480px] max-sm:h-[460px] overflow-hidden flex flex-col justify-between">
                 <p className="absolute z-10 p-[26px] text-white font-[500] text-[30px]">
                   Русская парная
                 </p>
@@ -155,7 +155,7 @@ export const SteamBaths: React.FC = () => {
                   className="w-full h-full">
                   {SLIDES_BG_RUS.map((src, i) => (
                     <SwiperSlide key={i}>
-                      <div className="relative h-[480px] max-w-[590px] w-full">
+                      <div className="relative h-[480px] max-sm:h-[460px] max-w-full w-full">
                         <Image fill src={src} alt={`slide-${i}`} className="object-cover" />
                       </div>
                     </SwiperSlide>
