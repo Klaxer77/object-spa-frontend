@@ -74,6 +74,7 @@ export const MenuPage: React.FC = () => {
     }
   }, []);
 
+  
   const handleMouseDown = useCallback((e: MouseEvent) => {
     const slider = e.currentTarget as HTMLElement;
     let isDown = true;
