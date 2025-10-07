@@ -19,7 +19,7 @@ export const useAdditionalServicesStore = create<AdditionalServicesStore>((set, 
 
   addService: (service) =>
     set((state) => {
-      // не добавляем дубликаты
+   
       if (state.services.some((s) => s.title === service.title)) return state;
 
       const updated = [...state.services, service];

@@ -18,7 +18,7 @@ export const BarItem: React.FC<Itembar> = ({ buttonImageUrl, name, items }) => {
           } gap-y-[20px] gap-x-[200px] mt-[40px] max-sm:mt-[20px] relative max-xl:grid-cols-1`}>
           {items.map((item) => {
             return (
-              <div className="w-full flex justify-between gap-[40px]">
+              <div key={item.name} className="w-full flex justify-between gap-[40px]">
                 {items.length > 5 && (
                   <div className="max-xl:hidden min-h-full w-[1px] bg-white/5 -top-[40px] -bottom-[50px] absolute left-1/2 -translate-x-1/2 z-10"></div>
                 )}

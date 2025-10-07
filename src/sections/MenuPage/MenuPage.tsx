@@ -2,7 +2,6 @@
 
 import { KitchenItem } from '@/entities/KitchenItem/KitchenItem';
 import { Container } from '@/shared/uikit';
-import { useRouter } from 'next/navigation';
 import { useGetMenu } from './api/useGetMenu';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Element, Link as ScrollLink } from 'react-scroll';
@@ -16,8 +15,6 @@ export const MenuPage: React.FC = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const { data: menu, isLoading } = useGetMenu();
   const [canScroll, setCanScroll] = useState(false);
-  
-  
 
   const isDragging = useRef(false);
   const startX = useRef(0);
@@ -80,8 +77,8 @@ export const MenuPage: React.FC = () => {
   const handleMouseDown = useCallback((e: MouseEvent) => {
     const slider = e.currentTarget as HTMLElement;
     let isDown = true;
-    let startX: number = e.pageX - slider.offsetLeft;
-    let scrollLeft: number = slider.scrollLeft;
+    const startX = e.pageX - slider.offsetLeft;
+    const scrollLeft = slider.scrollLeft;
 
     slider.classList.add('cursor-grabbing');
 
@@ -140,31 +137,29 @@ export const MenuPage: React.FC = () => {
           <div className="max-w-[1360px] mx-auto w-full pl-[40px] max-sm:pl-[15px] pr-0">
             <div className="flex justify-between items-end mb-[20px] max-md:items-center pr-[40px] 2xl:pr-0 max-sm:pr-[15px]">
               <div className="flex gap-[20px] items-center">
-                <Link href='/'>
-                <svg
-                  className="cursor-pointer max-md:w-[23px] max-md:h-[25px]"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="34"
-                  height="36"
-                  viewBox="0 0 34 36"
-                  fill="none">
-                  <path
-                    d="M32 17.9999L2 17.9999M2 17.9999L18.1485 34.1484M2 17.9999L18.1485 1.85132"
-                    stroke="#F4F4F4"
-                    strokeWidth="2.71732"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <Link href="/">
+                  <svg
+                    className="cursor-pointer max-md:w-[23px] max-md:h-[25px]"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="34"
+                    height="36"
+                    viewBox="0 0 34 36"
+                    fill="none">
+                    <path
+                      d="M32 17.9999L2 17.9999M2 17.9999L18.1485 34.1484M2 17.9999L18.1485 1.85132"
+                      stroke="#F4F4F4"
+                      strokeWidth="2.71732"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </Link>
-                <h1 className="text-[50px] leading-[120%] max-md:hidden">
-                  Меню Кухни
-                </h1>
-                <h1 className="text-[30px] leading-[36px] hidden max-md:inline">
-                  Кухня
-                </h1>
+                <h1 className="text-[50px] leading-[120%] max-md:hidden">Меню Кухни</h1>
+                <h1 className="text-[30px] leading-[36px] hidden max-md:inline">Кухня</h1>
               </div>
-              <Link href='/bar' className="transition-all duration-300 w-[130px] h-[45px] max-md:w-[105px] max-md:h-[40px] flex justify-center items-center border border-white/50 bg-white hover:bg-transparent hover:text-white text-[14px] font-[500] text-black">
+              <Link
+                href="/bar"
+                className="transition-all duration-300 w-[130px] h-[45px] max-md:w-[105px] max-md:h-[40px] flex justify-center items-center border border-white/50 bg-white hover:bg-transparent hover:text-white text-[14px] font-[500] text-black">
                 Меню бара
               </Link>
             </div>
@@ -186,7 +181,13 @@ export const MenuPage: React.FC = () => {
                   ))
                 : menu?.data.map((category) => (
                     <ScrollLink
-                      offset={(width <= 768 && totalPrice > 0) ? -340 : (width >= 768 && totalPrice > 0) ? -360 : -270}
+                      offset={
+                        width <= 768 && totalPrice > 0
+                          ? -340
+                          : width >= 768 && totalPrice > 0
+                          ? -360
+                          : -270
+                      }
                       smooth={true}
                       duration={500}
                       to={category.name}
@@ -234,7 +235,10 @@ export const MenuPage: React.FC = () => {
         </div>
 
         {isLoading ? (
-          <div className={`mt-[250px]  ${totalPrice > 0 ? 'mt-[340px] max-sm:mt-[300px]' : 'max-sm:mt-[220px]'}`}>
+          <div
+            className={`mt-[250px]  ${
+              totalPrice > 0 ? 'mt-[340px] max-sm:mt-[300px]' : 'max-sm:mt-[220px]'
+            }`}>
             <div className="mb-[30px] bg-white/20 animate-pulse max-w-[200px] h-[30px]"></div>
 
             <div className="grid grid-cols-4 gap-[20px] max-sm:gap-[10px] max-xl:grid-cols-3 max-md:grid-cols-2 max-[370px]:!grid-cols-1">
@@ -244,7 +248,10 @@ export const MenuPage: React.FC = () => {
             </div>
           </div>
         ) : (
-          <div className={`flex flex-col gap-[50px] mt-[250px]  ${totalPrice > 0 ? 'mt-[340px] max-sm:mt-[300px]' : 'max-sm:mt-[220px]'}`}>
+          <div
+            className={`flex flex-col gap-[50px] mt-[250px]  ${
+              totalPrice > 0 ? 'mt-[340px] max-sm:mt-[300px]' : 'max-sm:mt-[220px]'
+            }`}>
             {menu?.data.map((category) => (
               <Element key={category.id} name={category.name}>
                 <div>

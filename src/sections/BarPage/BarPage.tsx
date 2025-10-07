@@ -1,40 +1,15 @@
 'use client';
 
-import { KitchenItem } from '@/entities/KitchenItem/KitchenItem';
 import { Container } from '@/shared/uikit';
-import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Element, Link as ScrollLink } from 'react-scroll';
 import { useScreenWidth } from '@/shared/utils/useScreenWidth';
-import { useAdditionalServicesStore } from '@/shared/store/menuStore';
 import { BarItem } from '@/entities/BarItem/BarItem';
 import { useGetBar } from './api/useGetBar';
 import Link from 'next/link';
 
 export const BarPage: React.FC = () => {
-  const router = useRouter();
-  const scrollRef = useRef<HTMLDivElement>(null);
   const { data: bar, isLoading } = useGetBar();
-
-  const isDragging = useRef(false);
-  const startX = useRef(0);
-  const scrollLeftPos = useRef(0);
-
-  const onMouseMove = (e: MouseEvent) => {
-    if (!isDragging.current || !scrollRef.current) return;
-    const x = e.pageX - scrollRef.current.offsetLeft;
-    const walk = (x - startX.current) * 1.5;
-    scrollRef.current.scrollLeft = scrollLeftPos.current - walk;
-  };
-
-  const onMouseUp = () => {
-    if (!scrollRef.current) return;
-    isDragging.current = false;
-    scrollRef.current.classList.remove('cursor-grabbing');
-    window.removeEventListener('mousemove', onMouseMove);
-    window.removeEventListener('mouseup', onMouseUp);
-  };
-
   const width = useScreenWidth();
 
   const sliderRef = useRef<HTMLDivElement | null>(null);
@@ -49,8 +24,8 @@ export const BarPage: React.FC = () => {
   const handleMouseDown = useCallback((e: MouseEvent) => {
     const slider = e.currentTarget as HTMLElement;
     let isDown = true;
-    let startX: number = e.pageX - slider.offsetLeft;
-    let scrollLeft: number = slider.scrollLeft;
+    const startX = e.pageX - slider.offsetLeft;
+    const scrollLeft = slider.scrollLeft;
 
     slider.classList.add('cursor-grabbing');
 
