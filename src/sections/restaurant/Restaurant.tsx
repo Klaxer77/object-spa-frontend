@@ -19,7 +19,7 @@ const SLIDES_BG = [
 export const Restaurant: React.FC = () => {
   const swiperRef = useRef<SwiperType | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
-  const width = useScreenWidth()
+  const width = useScreenWidth();
 
   return (
     <section className="bg-[#101010] pt-[110px] overflow-hidden max-sm:pt-[70px]">
@@ -31,8 +31,10 @@ export const Restaurant: React.FC = () => {
             </div>
             <div className="pl-[20px] pr-[14px] py-[14px] flex flex-col justify-between w-full max-sm:pl-[13px] max-sm:p-[10px]">
               <div>
-                <p className="text-white/50 leading-[23px] mb-[8px] max-sm:text-[12px] max-sm:mb-[4px]">Спецпредложение</p>
-                <p className="font-[500] text-[25px] leading-[120%] max-sm:text-[16px]">VIP зона</p>
+                <p className="font-[500] text-[25px] leading-[120%] max-sm:text-[16px]">
+                  Приватный
+                </p>
+                <p className="font-[500] text-[25px] leading-[120%] max-sm:text-[16px]">VIP зал</p>
               </div>
               <button className="border hover:bg-white hover:text-black transition-all duration-300 border-white h-[45px] max-sm:h-[35px] w-full text-[14px] leading-[20px]">
                 Забронировать
@@ -48,10 +50,10 @@ export const Restaurant: React.FC = () => {
           />
           <div>
             <h2 className="text-[50px] leading-[110%] mb-[20px] max-sm:text-[30px]">Ресторан</h2>
-            <p className="max-w-[542px] font-[500] leading-[150%] text-white/50 mb-[40px] max-sm:text-[14px]">
-              Роскошное спа-пространство, ресторан авторской кухни, стильные номера. Бутик-отель
-              имеет категорию четыре звезды, расположен в черте города и предлагает круглосуточное
-              обслуживание премиум уровня.
+            <p className="max-w-[560px] font-[500] leading-[150%] text-white/50 mb-[40px] max-sm:text-[14px]">
+              Бренд‑шеф Алексей Мубараков создаёт авторские блюда европейской кухни длянаслаждения
+              каждым вкусом и нетривиальной авторской подачей.Для тех, кто понимает, в качественной
+              еде и эксклюзивном сервисе. Ваше место ежедневных встреч.
             </p>
           </div>
           <motion.div
@@ -61,7 +63,7 @@ export const Restaurant: React.FC = () => {
             viewport={{ once: true }}
             className="max-[1142px]:mb-[100px] border border-b-0 max-[1142px]:border-b border-white/15 bg-[#1B1B1B] pt-[40px] px-[50px] pb-[45px] max-w-[480px] w-full mt-[-35px] relative z-10 max-sm:p-[30px]">
             <p className="text-[30px] leading-[120%] max-sm:text-[20px]">
-              Наслаждайтесь европейской кухней в эксклюзивном пермском ресторане
+              Наслаждайтесь европейской кухней в престижном пермском ресторане
             </p>
             <button className="mt-[40px] border border-transparent hover:bg-transparent hover:text-white hover:border-white/15 transition-all duration-300 bg-white text-black w-[142px] h-[40px] text-[14px] font-[500] leading-[20px]">
               Смотреть меню

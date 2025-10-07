@@ -7,11 +7,14 @@ import Link from 'next/link';
 
 import { Link as ScrollLink } from 'react-scroll';
 import { MobileMenu } from './MobileMenu';
+import { useGetToken } from '@/shared/hooks/useGetToken';
 
 export const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useGetToken();
 
   const handleMouseEnter = () => {
     if (timeoutRef.current) {
@@ -27,9 +30,18 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className={`max-xl:fixed top-0 max-xl:bg-[#101010] transition-colors duration-200 min-h-[60px] w-full flex items-center justify-between pl-[30px] border-b border-white/15 relative z-[999] ${isOpenMenu ? 'bg-[#101010]' : 'bg-transparent'}`}>
+    <header
+      className={`fixed top-0 bg-[#101010] transition-colors duration-200 min-h-[60px] w-full flex items-center justify-between pl-[30px] border-b border-white/15 z-[999] ${
+        isOpenMenu ? 'bg-[#101010]' : ''
+      }`}>
       <Link href="/">
-        <Image className={`${isOpenMenu ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`} src="/img/Logo.webp" width={140} height={16} alt="logo" />
+        <Image
+          className={`${isOpenMenu ? 'opacity-0' : 'opacity-100'} transition-opacity duration-200`}
+          src="/img/Logo.webp"
+          width={140}
+          height={16}
+          alt="logo"
+        />
       </Link>
       <MobileMenu setIsOpenMenu={() => setIsOpenMenu(!isOpenMenu)} isOpenMenu={isOpenMenu} />
       <nav className="absolute left-1/2 -translate-x-1/2 max-xl:hidden">
@@ -74,7 +86,9 @@ export const Header: React.FC = () => {
             </ScrollLink>
           </li>
           <li>
-            <p className="text-[14px] leading-[20px]">Меню ресторана</p>
+            <Link href='/menu' className='text-[14px] leading-[20px]'>
+              Меню ресторана
+            </Link>
           </li>
         </ul>
       </nav>

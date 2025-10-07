@@ -5,18 +5,21 @@ export const SLIDES_DATA: SlideItemProps[] = [
     id: 1,
     image: '/img/slides/slideItem-1.webp',
     title: 'Ресторан',
-    link: '/'
+    subtitle: 'Престижный',
+    link: '/menu'
   },
   {
     id: 2,
     image: '/img/slides/slideItem-2.webp',
-    title: 'Аренда СПА',
+    title: 'СПА',
+    subtitle: 'Роскошные',
     link: '/spa'
   },
   {
     id: 3,
     image: '/img/slides/slideItem-3.webp',
     title: 'Отель',
+    subtitle: 'Люксовый',
     link: '/rooms'
   }
 ]  

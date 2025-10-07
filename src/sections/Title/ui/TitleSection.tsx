@@ -67,12 +67,11 @@ export const TitleSection: React.FC = () => {
                       </svg>
 
                       <h1 className="text-[50px] text-center leading-[120%] uppercase max-2xl:text-[36px]">
-                        Место для тех – <br /> кто ценит качественный отдых.
+                        Истинный стандарт <br/> премиального отдыха
                       </h1>
 
                       <p className="text-center leading-[24px] max-w-[500px] mt-[32px] text-white/70">
-                        Бутик-отель в 15 минутах от города. СПА - пространство. Круглосуточный
-                        ресторан. Номера премиум-класса.
+                        Безупречное сочетание ваших желаний <br /> и наших возможностей
                       </p>
                     </motion.div>
                   </div>
@@ -83,7 +82,7 @@ export const TitleSection: React.FC = () => {
         </motion.div>
       </motion.div>
 
-      <motion.div className='px-[15px] pt-[45px] hidden max-lg:block'>
+      <motion.div className="px-[15px] pt-[45px] hidden max-lg:block">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -110,12 +109,11 @@ export const TitleSection: React.FC = () => {
           </svg>
 
           <h1 className="text-[50px] text-center leading-[120%] uppercase max-2xl:text-[36px] max-[350px]:!text-[30px]">
-            Место для тех – кто ценит качественный отдых.
+            Истинный стандарт <br/> премиального отдыха
           </h1>
 
-          <p className="text-center leading-[24px] max-w-[500px] mt-[32px] text-white/70">
-            Бутик-отель в 15 минутах от города. СПА - пространство. Круглосуточный ресторан. Номера
-            премиум-класса.
+          <p className="text-center leading-[24px] max-w-[500px] mt-[32px] text-white/70 text-[14px]">
+            Безупречное сочетание ваших желаний <br /> и наших возможностей
           </p>
         </motion.div>
       </motion.div>
@@ -146,12 +144,11 @@ export const TitleSection: React.FC = () => {
         </svg>
 
         <h1 className="text-[50px] text-center leading-[120%] uppercase max-2xl:text-[36px]">
-          Место для тех – <br /> кто ценит качественный отдых.
+          Истинный стандарт <br/> премиального отдыха
         </h1>
 
         <p className="text-center leading-[24px] max-w-[500px] mt-[32px] text-white/70">
-          Бутик-отель в 15 минутах от города. СПА - пространство. Круглосуточный ресторан. Номера
-          премиум-класса.
+          Безупречное сочетание ваших желаний <br /> и наших возможностей
         </p>
       </motion.div>
     </section>

@@ -55,7 +55,9 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpenMenu, setIsOpenMen
             <div>
               <div className="flex flex-col min-h-[60px] w-full transition-all duration-200">
                 <div
-                  className={`flex justify-between items-center w-full h-[60px] pr-[20px] ${isOpenDropDown ? 'border-b' : 'border-b-0'} border-white/15 transition-all duration-200`}
+                  className={`flex justify-between items-center w-full h-[60px] pr-[20px] ${
+                    isOpenDropDown ? 'border-b' : 'border-b-0'
+                  } border-white/15 transition-all duration-200`}
                   onClick={() => setIsDropDown(!isOpenDropDown)}>
                   <p className="pl-[20px] font-[500]">Каталог услуг</p>
                   <svg
