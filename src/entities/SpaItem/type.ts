@@ -1,6 +1,8 @@
+import { ReactNode } from "react";
+
 type TimeItem = {
   id: number;
-  title: string
+  title: string | ReactNode | (() => ReactNode);
   price: number;
   count: string
 }

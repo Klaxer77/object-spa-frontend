@@ -50,8 +50,8 @@ export const SteamBaths: React.FC = () => {
           <div className="max-w-[590px] w-full flex-shrink">
             <div>
               <div className="relative w-full h-[480px] max-sm:h-[460px] overflow-hidden flex flex-col justify-between">
-                <p className="absolute z-10 p-[26px] text-white font-[500] text-[30px]">
-                  Римская парная
+                <p className="absolute z-10 p-[26px] text-white font-[500] text-[30px] max-sm:text-[20px] leading-[36px] max-sm:leading-[30px] max-w-[400px]">
+                  СПА-пространство <br /> с Римской парной
                 </p>
                 <Swiper
                   modules={[Autoplay]}
@@ -85,9 +85,12 @@ export const SteamBaths: React.FC = () => {
             </div>
             <div className="bg-black p-[26px] max-sm:p-[15px]">
               <p className="mb-[58px] font-[500] leading-[24px] text-white/70 max-sm:text-[12px] max-sm:mb-[20px] max-sm:leading-[18px]">
-                Единственная в Пермском крае парная выполненная из декоративной штукатурки,
-                купольный потолок и округлые стены позволят пару максимально равномерно
-                распределяться по помещению и эффективно мягко прогревать тело.
+                Самые эксклюзивные термы без компромиссов. Мягкий пар, при 45 °C равномерно
+                распределяется расслабляя ваше тело. Чистейший бассейн и массаж с эффектом
+                «тропического дождя» возвращают жизненную энергию. Просторные зоны отдыха,
+                гастрономическое меню, персональный официант и high‑end караоке‑система создают все
+                условия для личного сценария отдыха. Мы продумали каждую деталь и создали атмосферу,
+                где гармония, роскошь и ваш покой становятся безусловными ценностями.
               </p>
               <div className="flex justify-between items-end">
                 <button className="border border-transparent hover:bg-transparent hover:text-white hover:border-white/15 transition-all duration-300 bg-white text-black w-[142px] h-[40px] text-[14px] font-[500] leading-[20px]">
@@ -142,8 +145,8 @@ export const SteamBaths: React.FC = () => {
           <div className="max-w-[590px] w-full flex-shrink">
             <div>
               <div className="relative w-full h-[480px] max-sm:h-[460px] overflow-hidden flex flex-col justify-between">
-                <p className="absolute z-10 p-[26px] text-white font-[500] text-[30px]">
-                  Русская парная
+                <p className="absolute z-10 p-[26px] text-white font-[500] text-[30px] max-sm:text-[20px] leading-[36px] max-sm:leading-[30px] max-w-[400px]">
+                  СПА-пространство <br /> с Русской парной
                 </p>
                 <Swiper
                   modules={[Autoplay]}
@@ -177,9 +180,12 @@ export const SteamBaths: React.FC = () => {
             </div>
             <div className="bg-black p-[26px]">
               <p className="mb-[58px] font-[500] leading-[24px] text-white/70 max-sm:text-[12px] max-sm:mb-[20px] max-sm:leading-[18px]">
-                Единственная в Пермском крае парная выполненная из декоративной штукатурки,
-                купольный потолок и округлые стены позволят пару максимально равномерно
-                распределяться по помещению и эффективно мягко прогревать тело.
+                Самая роскошная русская парная без компромиссов, переосмысливающая русские банные
+                традиции. Глубокий пар до 90 °C с ароматом дубовых веников; бассейн с автоматическим
+                контролем качества воды; контрастное обливание и массажная комната возвращают силы.
+                Просторные зоны отдыха, гастрономическое меню с персональным официантом,
+                high‑end караоке‑система и бильярдный стол создают условия для личной перезагрузки,
+                деловых встреч и камерных торжеств.
               </p>
               <div className="flex justify-between items-end">
                 <button className="border border-transparent hover:bg-transparent hover:text-white hover:border-white/15 transition-all duration-300 bg-white text-black w-[142px] h-[40px] text-[14px] font-[500] leading-[20px]">

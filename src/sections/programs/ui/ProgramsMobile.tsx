@@ -82,10 +82,9 @@ export const ProgramsMobile: React.FC = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-white/70 font-[500] leading-[150%] max-w-[1060px] max-sm:text-[14px]">
-              Роскошное спа-пространство, ресторан авторской кухни, стильные номера. Бутик-отель
-              имеет категорию четыре звезды, расположен в черте города и предлагает круглосуточное
-              обслуживание премиум уровня.
+              className="text-white/70 font-[500] leading-[150%] max-w-[700px]">
+              Индивидуальные продуманные программы перезагрузки и восстановления в роскошных Спа
+              –пространствах с римской или русской парной.
             </motion.p>
           </div>
 

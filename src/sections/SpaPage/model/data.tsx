@@ -1,6 +1,8 @@
+import { ReactNode } from 'react';
+
 type TimeItem = {
   id: number;
-  title: string;
+  title: string | ReactNode | (() => ReactNode);
   price: number;
   count: string;
 };
@@ -8,57 +10,105 @@ type TimeItem = {
 export interface SpaItemProps {
   id: number;
   images: string[];
-  title: number;
+  title: string;
   time: TimeItem[];
 }
 
-export const SPA_DATA = [
+export const SPA_DATA: SpaItemProps[] = [
   {
     id: 1,
     images: ['/img/slides/SpaSlide1.png', '/img/slides/SpaSlide1.png', '/img/slides/SpaSlide1.png'],
-    title: 'Римская парная',
+    title: 'СПА с Римской парной',
     time: [
       {
         id: 1,
-        title: 'СПА (2 часа)',
+        title: () => (
+          <>
+            СПА на 1 гостя, <br /> 2 часа
+          </>
+        ),
         price: 15000,
         count: 'Аренда СПА на 1 гостя',
       },
       {
         id: 2,
-        title: 'СПА (3 часа)',
-        price: 21000,
+        title: () => (
+          <>
+            СПА <br /> до 6 гостей
+          </>
+        ),
+        price: 7000,
         count: 'Аренда СПА до 6 гостей',
       },
       {
         id: 3,
-        title: 'СПА (4 часа)',
-        price: 28000,
+        title: () => (
+          <>
+            СПА <br /> до 8 гостей
+          </>
+        ),
+        price: 10000,
+        count: 'Аренда СПА до 6 гостей',
+      },
+      {
+        id: 4,
+        title: () => (
+          <>
+            СПА <br /> до 10 гостей
+          </>
+        ),
+        price: 15000,
         count: 'Аренда СПА до 6 гостей',
       },
     ],
   },
   {
     id: 2,
-    images: ['/img/slides/SpaSlide2.webp', '/img/slides/SpaSlide2.webp', '/img/slides/SpaSlide2.webp'],
-    title: 'Русская парная',
+    images: [
+      '/img/slides/SpaSlide2.webp',
+      '/img/slides/SpaSlide2.webp',
+      '/img/slides/SpaSlide2.webp',
+    ],
+    title: 'СПА с Русской парной',
     time: [
       {
         id: 1,
-        title: 'СПА (2 часа)',
+        title: () => (
+          <>
+            СПА на 1 гостя, <br /> 2 часа
+          </>
+        ),
         price: 15000,
         count: 'Аренда СПА на 1 гостя',
       },
       {
         id: 2,
-        title: 'СПА (3 часа)',
-        price: 21000,
+        title: () => (
+          <>
+            СПА <br /> до 6 гостей
+          </>
+        ),
+        price: 7000,
         count: 'Аренда СПА до 6 гостей',
       },
       {
         id: 3,
-        title: 'СПА (4 часа)',
-        price: 28000,
+        title: () => (
+          <>
+            СПА <br /> до 8 гостей
+          </>
+        ),
+        price: 10000,
+        count: 'Аренда СПА до 6 гостей',
+      },
+      {
+        id: 4,
+        title: () => (
+          <>
+            СПА <br /> до 10 гостей
+          </>
+        ),
+        price: 15000,
         count: 'Аренда СПА до 6 гостей',
       },
     ],

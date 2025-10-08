@@ -1,41 +1,54 @@
-type TimeItem = {
+type RoomItem = {
   id: number;
   title: string;
   price: number;
   count: string;
 };
 
-export interface SpaItemProps {
+export interface RoomItemProps {
   id: number;
   images: string[];
   title: number;
-  time: TimeItem[];
+  time: RoomItem[];
 }
 
 export const ROOMS_DATA = [
   {
     id: 1,
-    images: ['/img/slides/RoomSlide1.webp', '/img/slides/RoomSlide1.webp', '/img/slides/RoomSlide1.webp'],
-    title: 'Бизнес',
+    images: ['/img/slides/RoomSlide2.webp', '/img/slides/RoomSlide2.webp', '/img/slides/RoomSlide2.webp'],
+    title: 'Бизнес в светлых тонах',
     time: [
       {
         id: 1,
-        title: 'Номер бизнес на 1 сутки',
+        title: 'Номер Светлый Бизнес на 1 сутки',
         price: 10000,
-        count: 'Аренда СПА на 1 гостя',
-      },
+        count: 'Проживание 1 гостя',
+      }
     ],
   },
   {
     id: 2,
+    images: ['/img/slides/RoomSlide1.webp', '/img/slides/RoomSlide1.webp', '/img/slides/RoomSlide1.webp'],
+    title: 'Бизнес в темных тонах',
+    time: [
+      {
+        id: 1,
+        title: 'Номер Бизнес на 1 сутки',
+        price: 10000,
+        count: 'Проживание 1 гостя',
+      },
+    ],
+  },
+  {
+    id: 3,
     images: ['/img/slides/RoomSlide2.webp', '/img/slides/RoomSlide2.webp', '/img/slides/RoomSlide2.webp'],
     title: 'Люкс',
     time: [
       {
         id: 1,
         title: 'Номер люкс на 1 сутки',
-        price: 14000,
-        count: 'Аренда номера для 2 гостей.',
+        price: 15000,
+        count: 'Проживание на 2 гостя',
       }
     ],
   },

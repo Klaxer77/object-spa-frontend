@@ -195,42 +195,36 @@ export const SpaItem: React.FC<SpaItemProps> = ({ title, images, time }) => {
       <div className="py-[30px] flex-1">
         <p className="text-[30px] font-[500] leading-[36px] mb-[30px]">{title}</p>
 
-        <p className="mb-[20px] font-[500] leading-[24px] text-white/70">Выберите время:</p>
+        <p className="mb-[20px] font-[500] leading-[24px] text-white/70">
+          Выберите количество гостей:
+        </p>
 
         {/* Время */}
-        <div className="grid gap-[10px] grid-cols-3 max-w-[810px]">
-          {time.map((item) => {
+        <div className="grid gap-[10px] grid-cols-2 max-w-[810px]">
+          {time.map((item, i) => {
             const isActive = selectedId === item.id;
             return (
               <div
                 key={item.id}
                 onClick={() => setSelectedId(item.id)}
-                className={`p-[20px] flex gap-[12px] cursor-pointer transition-colors duration-300 ${
-                  isActive ? 'bg-white' : 'bg-[#262724]'
+                className={`p-[20px] flex justify-between gap-[12px] cursor-pointer transition-colors duration-300 ${
+                  isActive ? 'bg-white' : 'bg-white/10'
                 }`}>
                 <Checkbox active={isActive} />
-                <div>
+                <div className="flex justify-between items-center w-full">
                   <p
                     className={`${
                       isActive ? 'text-black' : 'text-white'
                     } font-[500] text-[20px] leading-[30px]`}>
-                    {item.title}
-                  </p>
-                  <p
-                    className={`${
-                      isActive ? 'text-[#1E1F1CB2]' : 'text-white/50'
-                    } text-[14px] leading-[20px} font-[500] mb-[30px]`}>
-                    {item.count}
+                    {typeof item.title === 'function' ? item.title() : item.title}
                   </p>
                   <div
-                    className={`${
-                      isActive ? 'bg-[#1D1E1C]' : 'bg-white'
-                    } w-[116px] h-[50px] flex items-center justify-center`}>
+                    className={`bg-[#1D1E1C] h-[48px] px-[20px] flex items-center justify-center`}>
                     <p
-                      className={`${
-                        isActive ? 'text-white' : 'text-[#1D1E1C]'
-                      } font-[700] text-[20px] traking-[-0.02em] leading-[30px]`}>
-                      {item.price.toLocaleString('ru-RU')} ₽
+                      className={`text-white font-[700] text-[20px] traking-[-0.02em] leading-[30px]`}>
+                      {i === 0
+                        ? `${item.price.toLocaleString('ru-RU')} ₽`
+                        : `${item.price.toLocaleString('ru-RU')} ₽/час`}
                     </p>
                   </div>
                 </div>
@@ -240,7 +234,7 @@ export const SpaItem: React.FC<SpaItemProps> = ({ title, images, time }) => {
         </div>
 
         <p className="my-[20px] font-[500] leading-[24px] text-white/70">
-          Стоимость продления на каждый следующий час равна 7 000₽.
+          Минимальное бронирование свыше 1 гостя - 3 часа
         </p>
 
         <div className="flex gap-[10px] items-center max-w-[810px]">
@@ -288,7 +282,7 @@ export const SpaItem: React.FC<SpaItemProps> = ({ title, images, time }) => {
           )}
           <button
             onClick={() => setIsOpenModalForm(true)}
-            className="bg-white hover:bg-transparent border border-transparent hover:border-white/50 w-[216px] h-[60px] flex justify-center items-center text-[14px] font-[700] leading-[20px] transition-colors duration-300 uppercase text-black hover:text-white">
+            className="bg-white hover:bg-transparent border border-transparent hover:border-white/50 w-[216px] h-[50px] flex justify-center items-center text-[14px] font-[700] leading-[20px] transition-colors duration-300 uppercase text-black hover:text-white">
             Забронировать СПА
           </button>
         </div>
@@ -302,7 +296,7 @@ export const SpaItem: React.FC<SpaItemProps> = ({ title, images, time }) => {
         />
 
         <ModalForm
-        currentImage={currentImage}
+          currentImage={currentImage}
           isOpen={isOpenModalForm}
           setIsOpen={setIsOpenModalForm}
           totalPrice={totalPrice}

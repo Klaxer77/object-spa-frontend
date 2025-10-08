@@ -192,83 +192,83 @@ export const RoomItem: React.FC<RoomItemProps> = ({ title, images, time }) => {
       </div>
 
       {/* Контент */}
-      <div className="py-[30px] flex-1">
-        <p className="text-[30px] font-[500] leading-[36px] mb-[30px]">{title}</p>
+      <div className="py-[30px] flex-1 flex flex-col justify-between">
+        <div>
+          <p className="text-[30px] font-[500] leading-[36px] mb-[30px]">{title}</p>
 
-        {/* Время */}
-        <div className="grid gap-[10px] grid-cols-1 max-w-[810px]">
-          {time.map((item) => {
-            const isActive = selectedId === item.id;
-            return (
-              <div
-                key={item.id}
-                onClick={() => setSelectedId(item.id)}
-                className={`p-[20px] flex gap-[12px] cursor-pointer transition-colors duration-300 ${
-                  isActive ? 'bg-white' : 'bg-[#262724]'
-                }`}>
-                <Checkbox active={isActive} />
-                <div>
-                  <p
-                    className={`${
-                      isActive ? 'text-black' : 'text-white'
-                    } font-[500] text-[20px] leading-[30px]`}>
-                    {item.title}
-                  </p>
-                  <p
-                    className={`${
-                      isActive ? 'text-[#1E1F1CB2]' : 'text-white/50'
-                    } text-[14px] leading-[20px} font-[500] mb-[30px]`}>
-                    {item.count}
-                  </p>
-                  <div
-                    className={`${
-                      isActive ? 'bg-[#1D1E1C]' : 'bg-white'
-                    } w-[116px] h-[50px] flex items-center justify-center`}>
+          {/* Время */}
+          <div className="grid gap-[10px] grid-cols-1 max-w-[810px]">
+            {time.map((item) => {
+              const isActive = selectedId === item.id;
+              return (
+                <div
+                  key={item.id}
+                  onClick={() => setSelectedId(item.id)}
+                  className={`p-[20px] flex gap-[12px] cursor-pointer transition-colors duration-300 ${
+                    isActive ? 'bg-white' : 'bg-[#262724]'
+                  }`}>
+                  <Checkbox active={isActive} />
+                  <div>
                     <p
                       className={`${
-                        isActive ? 'text-white' : 'text-[#1D1E1C]'
-                      } font-[700] text-[20px] traking-[-0.02em] leading-[30px]`}>
-                      {item.price.toLocaleString('ru-RU')} ₽
+                        isActive ? 'text-black' : 'text-white'
+                      } font-[500] text-[20px] leading-[30px]`}>
+                      {item.title}
                     </p>
+                    <p
+                      className={`${
+                        isActive ? 'text-[#1E1F1CB2]' : 'text-white/50'
+                      } text-[14px] leading-[20px} font-[500] mb-[30px]`}>
+                      {item.count}
+                    </p>
+                    <div
+                      className={`${
+                        isActive ? 'bg-[#1D1E1C]' : 'bg-white'
+                      } w-[116px] h-[50px] flex items-center justify-center`}>
+                      <p
+                        className={`${
+                          isActive ? 'text-white' : 'text-[#1D1E1C]'
+                        } font-[700] text-[20px] traking-[-0.02em] leading-[30px]`}>
+                        {item.price.toLocaleString('ru-RU')} ₽
+                      </p>
+                    </div>
                   </div>
                 </div>
+              );
+            })}
+          </div>
+
+          <div className="flex gap-[10px] items-center max-w-[810px] mt-[20px]">
+            <button
+              onClick={() => setIsOpenModal(true)}
+              className="transition-colors duration-300 text-[14px] text-white leading-[20px] font-[500] flex justify-center items-center border border-white/50 w-[175px] h-[50px] hover:bg-white hover:text-black shrink-0">
+              Выбрать доп. услуги
+            </button>
+
+            <div className="relative flex-1 max-w-[622px]">
+              <div
+                ref={scrollRef}
+                className={`flex gap-[20px] [scrollbar-width:0] [&::-webkit-scrollbar]:hidden overflow-x-auto select-none py-2 ${
+                  canScroll ? 'cursor-grab' : 'cursor-default'
+                }`}
+                onMouseDown={onMouseDown}>
+                {additionalServices.map((item, i) => (
+                  <div
+                    key={i}
+                    className="flex justify-center items-center bg-[#262724] border border-white/50 h-[50px] px-[20px] relative overflow-visible">
+                    <button
+                      onClick={() =>
+                        setAdditionalServices((prev) => prev.filter((s) => s.title !== item.title))
+                      }
+                      className="absolute -right-2 -top-2 w-[20px] h-[20px] flex justify-center items-center bg-[#141412] rounded-[4px] border border-[#333232] hover:bg-[#222] transition-colors z-10">
+                      ×
+                    </button>
+                    <p className="font-[500] text-[14px] leading-[20px] whitespace-nowrap">
+                      {item.title}
+                    </p>
+                  </div>
+                ))}
               </div>
-            );
-          })}
-        </div>
-
-        <p className="my-[20px] font-[500] leading-[24px] text-white/70">Доп. текст</p>
-
-        <div className="flex gap-[10px] items-center max-w-[810px]">
-          <button
-            onClick={() => setIsOpenModal(true)}
-            className="transition-colors duration-300 text-[14px] text-white leading-[20px] font-[500] flex justify-center items-center border border-white/50 w-[175px] h-[50px] hover:bg-white hover:text-black shrink-0">
-            Выбрать доп. услуги
-          </button>
-
-          <div className="relative flex-1 max-w-[622px]">
-            <div
-              ref={scrollRef}
-              className={`flex gap-[20px] [scrollbar-width:0] [&::-webkit-scrollbar]:hidden overflow-x-auto select-none py-2 ${
-                canScroll ? 'cursor-grab' : 'cursor-default'
-              }`}
-              onMouseDown={onMouseDown}>
-              {additionalServices.map((item, i) => (
-                <div
-                  key={i}
-                  className="flex justify-center items-center bg-[#262724] border border-white/50 h-[50px] px-[20px] relative overflow-visible">
-                  <button
-                    onClick={() =>
-                      setAdditionalServices((prev) => prev.filter((s) => s.title !== item.title))
-                    }
-                    className="absolute -right-2 -top-2 w-[20px] h-[20px] flex justify-center items-center bg-[#141412] rounded-[4px] border border-[#333232] hover:bg-[#222] transition-colors z-10">
-                    ×
-                  </button>
-                  <p className="font-[500] text-[14px] leading-[20px] whitespace-nowrap">
-                    {item.title}
-                  </p>
-                </div>
-              ))}
             </div>
           </div>
         </div>
@@ -284,8 +284,8 @@ export const RoomItem: React.FC<RoomItemProps> = ({ title, images, time }) => {
           )}
           <button
             onClick={() => setIsOpenModalForm(true)}
-            className="bg-white hover:bg-transparent border border-transparent hover:border-white/50 w-[216px] h-[60px] flex justify-center items-center text-[14px] font-[700] leading-[20px] transition-colors duration-300 uppercase text-black hover:text-white">
-            Забронировать СПА
+            className="bg-white hover:bg-transparent border border-transparent hover:border-white/50 w-[238px] h-[50px] flex justify-center items-center text-[14px] font-[700] leading-[20px] transition-colors duration-300 uppercase text-black hover:text-white">
+            Забронировать номер
           </button>
         </div>
 

@@ -1,4 +1,4 @@
-type TimeItem = {
+type RoomItem = {
   id: number;
   title: string
   price: number;
@@ -10,5 +10,5 @@ export interface RoomItemProps {
   id: number;
   images: string[];
   title: string;
-  time: TimeItem[]
+  time: RoomItem[]
 };

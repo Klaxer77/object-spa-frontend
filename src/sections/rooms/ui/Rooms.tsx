@@ -52,7 +52,7 @@ export const Rooms: React.FC = () => {
               <div className="relative w-full h-[480px] max-sm:h-[460px] overflow-hidden flex flex-col justify-between">
                 <div className="absolute bottom-[26px] z-10 p-[26px]">
                   <p className="text-[30px] leading-[120%] mb-[10px] max-sm:text-[16px] max-sm:leading-[24px] max-sm:mb-0">
-                    2 номера
+                    1 номер
                   </p>
                   <p className="text-white text-[50px] leading-[50px] max-sm:text-[20px] max-sm:leading-[30px]">
                     Люкс
@@ -89,8 +89,25 @@ export const Rooms: React.FC = () => {
               </div>
             </div>
             <div className="bg-black p-[26px] max-sm:p-[15px]">
-              <p className="mb-[58px] font-[500] leading-[24px] text-white/70 max-sm:text-[12px] max-sm:leading-[18px] max-sm:mb-[24px]">
-                Заезд в номер осуществляется с 14:00, выезд из номера не поздее 12:00 следующего дня
+              <p className="mb-[34px] font-[500] leading-[24px] text-white/70 max-sm:text-[12px] max-sm:leading-[18px] max-sm:mb-[24px]">
+                - Заезд осуществляется с 14:00, выезд до 12:00
+                <br />
+                - Двухместный номер • 35 м2
+                <br />
+                -Отдельная гостиная зона с диваном и телевизором <br />
+                - Кровать King Size.
+                <br />
+                - Продуманная система шумоизоляции. <br />
+                - Blackout‑шторы <br />
+                - Ванна в полу и просторная душевая с тропическим душем
+                <br />
+                - Интернет <br />
+                - Кондиционер
+                <br />
+                - Банные принадлежности <br />
+                - Туалетные принадлежности <br />
+                - Завтрак
+                <br />
               </p>
               <div className="flex justify-between items-end">
                 <button className="border border-transparent hover:bg-transparent hover:text-white hover:border-white/15 transition-all duration-300 bg-white text-black w-[190px] h-[40px] text-[14px] font-[700] leading-[20px]">
@@ -147,7 +164,7 @@ export const Rooms: React.FC = () => {
               <div className="relative w-full h-[480px] max-sm:h-[460px] overflow-hidden flex flex-col justify-between">
                 <div className="absolute bottom-[26px] z-10 p-[26px]">
                   <p className="text-[30px] leading-[120%] mb-[10px] max-sm:text-[16px] max-sm:leading-[24px] max-sm:mb-0">
-                    2 номера
+                    4 номера
                   </p>
                   <p className="text-white text-[50px] leading-[50px] max-sm:text-[20px] max-sm:leading-[30px]">
                     Бизнес
@@ -184,8 +201,18 @@ export const Rooms: React.FC = () => {
               </div>
             </div>
             <div className="bg-black p-[26px] max-sm:p-[15px]">
-              <p className="mb-[58px] font-[500] leading-[24px] text-white/70 max-sm:text-[12px] max-sm:leading-[18px] max-sm:mb-[24px]">
-                Заезд в номер осуществляется с 14:00, выезд из номера не поздее 12:00 следующего дня
+              <p className="mb-[34px] font-[500] leading-[24px] text-white/70 max-sm:text-[12px] max-sm:leading-[18px] max-sm:mb-[24px]">
+                - Заезд осуществляется с 14:00, выезд до 12:00 <br />
+                - Двухместный номер • 24 м2 <br />
+                - Кровать King Size.  <br />
+                - Продуманная система шумоизоляции.  <br />
+                - Blackout‑шторы <br />
+                - Просторная душевая с тропическим душем <br />
+                - Интернет <br />
+                - Кондиционер <br />
+                - Банные принадлежности <br />
+                - Туалетные принадлежности <br />
+                - Завтрак <br />
               </p>
               <div className="flex justify-between items-end">
                 <button className="border border-transparent hover:bg-transparent hover:text-white hover:border-white/15 transition-all duration-300 bg-white text-black w-[190px] h-[40px] text-[14px] font-[700] leading-[20px]">

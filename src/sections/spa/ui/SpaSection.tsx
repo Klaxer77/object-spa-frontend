@@ -24,10 +24,9 @@ export const SpaSection: React.FC = () => {
                   fill="#F4F4F4"
                 />
               </svg>
-              <p className="max-w-[380px] font-[500] text-white/70 leading-[150%] max-sm:mb-[40px] max-sm:text-[14px]">
-                Роскошное спа-пространство, ресторан авторской кухни, стильные номера. Бутик-отель
-                имеет категорию четыре звезды, расположенв черте города и предлагает круглосуточное
-                обслуживание премиум уровня.
+              <p className="max-w-[370px] font-[500] text-white/70 leading-[150%] max-sm:mb-[40px] max-sm:text-[14px] tracking-[-0.02em]">
+                Добро пожаловать в наше премиальное <br /> Спа – место, где переплетаются искусство
+                расслабления и высочайший уровень сервиса.
               </p>
             </div>
             <div className="p-[40px] relative max-2xl:mb-[30px] max-sm:p-[35px] max-sm:order-1 max-sm:mb-0">
@@ -76,12 +75,12 @@ export const SpaSection: React.FC = () => {
                 />
                 <Image fill className="object-cover" src="/img/swim.webp" alt="picture" />
                 <div className="relative z-10 flex flex-col justify-between h-full">
-                  <div className="flex flex-col gap-[10px] max-w-[220px]">
-                    <p className="text-[30px] font-[500] leading-[36px] max-lg:text-[14px] max-lg:leading-[20px]">
-                      Бассейн почти не содержит хлорки
+                  <div className="flex flex-col gap-[10px] max-w-[260px]">
+                    <p className="text-[30px] font-[500] leading-[36px] max-lg:text-[14px] max-lg:leading-[20px] tracking-[-0.02em]">
+                      Площадь<br /> Спа - пространств
                     </p>
                     <p className="text-[110px] leading-[155px] font-[500] max-lg:text-[50px] max-lg:leading-[70px] max-[370px]:!text-[36px]">
-                      13%
+                      500м2
                     </p>
                   </div>
                   <p className="font-[500] leading-[120%] max-sm:text-[10px]">
