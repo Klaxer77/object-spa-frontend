@@ -3,8 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.prod
-    image: permterm_frontend_prod_image:latest
-    container_name: permterm_frontend_prod
+    image: object_frontend_prod_image:latest
+    container_name: object_frontend_prod
     command: sh -c "npm run start"
     restart: always
     networks:
@@ -14,7 +14,7 @@ services:
     build:
       context: ./nginx                
       dockerfile: Dockerfile.prod
-    container_name: permterm_nginx_prod
+    container_name: object_nginx_prod
     ports:
       - 80:80
       - 443:443
