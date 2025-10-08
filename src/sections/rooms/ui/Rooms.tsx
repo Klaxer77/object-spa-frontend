@@ -8,8 +8,8 @@ import type { Swiper as SwiperType } from 'swiper';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const SLIDES_BG_RIM = ['/img/room1.webp', '/img/room1.webp', '/img/room1.webp', '/img/room1.webp'];
-const SLIDES_BG_RUS = ['/img/room2.webp', '/img/room2.webp', '/img/room2.webp', '/img/room2.webp'];
+const SLIDES_BG_RIM = ['/img/lux1.webp', '/img/lux2.webp', '/img/lux3.webp', '/img/lux4.webp'];
+const SLIDES_BG_RUS = ['/img/bus1.webp', '/img/bus2.webp', '/img/bus3.webp', '/img/bus4.webp'];
 
 export const Rooms: React.FC = () => {
   const [activeIndexRim, setActiveIndexRim] = useState(0);
@@ -175,8 +175,8 @@ export const Rooms: React.FC = () => {
                   autoplay={{ delay: 3000, disableOnInteraction: false }}
                   slidesPerView={1}
                   loop
-                  onSlideChange={(swiper) => setActiveIndexRim(swiper.realIndex)}
-                  onSwiper={(swiper) => (swiperRefRim.current = swiper)}
+                  onSlideChange={(swiper) => setActiveIndexRus(swiper.realIndex)}
+                  onSwiper={(swiper) => (swiperRefRus.current = swiper)}
                   className="w-full h-full">
                   {SLIDES_BG_RUS.map((src, i) => (
                     <SwiperSlide key={i}>
@@ -193,9 +193,9 @@ export const Rooms: React.FC = () => {
                     <div
                       key={i}
                       className={`h-[4px] rounded-[2px] transition-all duration-300 cursor-pointer relative z-10 ${
-                        i === activeIndexRim ? 'bg-white w-[35px]' : 'bg-white opacity-50 w-[12px]'
+                        i === activeIndexRus ? 'bg-white w-[35px]' : 'bg-white opacity-50 w-[12px]'
                       }`}
-                      onClick={() => swiperRefRim.current?.slideToLoop(i)}></div>
+                      onClick={() => swiperRefRus.current?.slideToLoop(i)}></div>
                   ))}
                 </div>
               </div>

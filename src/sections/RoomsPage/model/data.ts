@@ -15,7 +15,7 @@ export interface RoomItemProps {
 export const ROOMS_DATA = [
   {
     id: 1,
-    images: ['/img/slides/RoomSlide2.webp', '/img/slides/RoomSlide2.webp', '/img/slides/RoomSlide2.webp'],
+    images: ['/img/light1.webp', '/img/light2.webp', '/img/light3.webp', '/img/light4.webp'],
     title: 'Бизнес в светлых тонах',
     time: [
       {
@@ -28,7 +28,7 @@ export const ROOMS_DATA = [
   },
   {
     id: 2,
-    images: ['/img/slides/RoomSlide1.webp', '/img/slides/RoomSlide1.webp', '/img/slides/RoomSlide1.webp'],
+    images: ['/img/bus1.webp', '/img/bus2.webp', '/img/bus3.webp', '/img/bus4.webp'],
     title: 'Бизнес в темных тонах',
     time: [
       {
@@ -41,7 +41,7 @@ export const ROOMS_DATA = [
   },
   {
     id: 3,
-    images: ['/img/slides/RoomSlide2.webp', '/img/slides/RoomSlide2.webp', '/img/slides/RoomSlide2.webp'],
+    images: ['/img/lux1.webp', '/img/lux2.webp', '/img/lux3.webp', '/img/lux4.webp'],
     title: 'Люкс',
     time: [
       {

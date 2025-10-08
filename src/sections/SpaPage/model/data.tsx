@@ -17,7 +17,7 @@ export interface SpaItemProps {
 export const SPA_DATA: SpaItemProps[] = [
   {
     id: 1,
-    images: ['/img/slides/SpaSlide1.png', '/img/slides/SpaSlide1.png', '/img/slides/SpaSlide1.png'],
+    images: ['/img/rim.webp', '/img/rim2.webp', '/img/rim3.webp', '/img/rim4.webp'],
     title: 'СПА с Римской парной',
     time: [
       {
@@ -65,9 +65,10 @@ export const SPA_DATA: SpaItemProps[] = [
   {
     id: 2,
     images: [
-      '/img/slides/SpaSlide2.webp',
-      '/img/slides/SpaSlide2.webp',
-      '/img/slides/SpaSlide2.webp',
+      '/img/rus.webp',
+      '/img/rus2.webp',
+      '/img/rus3.webp',
+      '/img/rus4.webp',
     ],
     title: 'СПА с Русской парной',
     time: [
