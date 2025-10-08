@@ -8,8 +8,8 @@ import type { Swiper as SwiperType } from 'swiper';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const SLIDES_BG_RIM = ['/img/rim.webp', '/img/rim.webp', '/img/rim.webp', '/img/rim.webp'];
-const SLIDES_BG_RUS = ['/img/rus.webp', '/img/rus.webp', '/img/rus.webp', '/img/rus.webp'];
+const SLIDES_BG_RIM = ['/img/rim1.webp', '/img/rim2.webp', '/img/rim3.webp', '/img/rim4.webp'];
+const SLIDES_BG_RUS = ['/img/rus.webp', '/img/rus2.webp', '/img/rus3.webp', '/img/rus4.webp'];
 
 export const SteamBaths: React.FC = () => {
   const [activeIndexRim, setActiveIndexRim] = useState(0);

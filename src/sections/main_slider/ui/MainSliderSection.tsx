@@ -7,21 +7,34 @@ import { Container } from '@/shared/uikit';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Autoplay } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 
 const SLIDES_BG = [
   '/img/slides/slide-1.webp',
-  '/img/slides/slide-1.webp',
-  '/img/slides/slide-1.webp',
-  '/img/slides/slide-1.webp',
+  '/img/slides/slide-2.webp',
+  '/img/slides/slide-3.webp',
 ];
 
 export const MainSliderSection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isScrollable, setIsScrollable] = useState(false);
   const swiperRef = useRef<SwiperType | null>(null);
   const sliderRef = useRef<HTMLDivElement | null>(null);
+
+  // Проверяем, можно ли скроллить
+  const checkScrollable = () => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+    setIsScrollable(slider.scrollWidth > slider.clientWidth);
+  };
+
+  useEffect(() => {
+    checkScrollable();
+    window.addEventListener('resize', checkScrollable);
+    return () => window.removeEventListener('resize', checkScrollable);
+  }, []);
 
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     const slider = sliderRef.current;
@@ -35,7 +48,7 @@ export const MainSliderSection: React.FC = () => {
 
     const onMouseMove = (eMove: MouseEvent) => {
       eMove.preventDefault();
-      const walk = (eMove.pageX - startX) * 1; 
+      const walk = (eMove.pageX - startX) * 1;
       slider.scrollLeft = startScrollLeft - walk;
     };
 
@@ -73,7 +86,9 @@ export const MainSliderSection: React.FC = () => {
         <Container className="absolute z-10 max-[1360px]:pr-0">
           <div
             ref={sliderRef}
-            className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-x-auto cursor-grab select-none flex items-center gap-[10px] [&::-webkit-scrollbar]:hidden w-full max-w-[1360px] pl-[40px] max-sm:pl-[15px]"
+            className={`absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-x-auto flex items-center gap-[10px] [&::-webkit-scrollbar]:hidden w-full max-w-[1360px] pl-[40px] max-sm:pl-[15px] select-none ${
+              isScrollable ? 'cursor-grab' : 'cursor-default'
+            }`}
             style={{
               scrollbarWidth: 'none',
               msOverflowStyle: 'none',

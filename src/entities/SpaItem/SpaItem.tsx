@@ -111,7 +111,7 @@ export const SpaItem: React.FC<SpaItemProps> = ({ title, images, time }) => {
         />
       </svg>
       {/* Слайдер */}
-      <div className="relative w-[410px] min-h-[550px]">
+      <div className="relative w-[410px] min-h-[550px] h-full">
         <Swiper
           modules={[Navigation]}
           slidesPerView={1}
@@ -137,7 +137,7 @@ export const SpaItem: React.FC<SpaItemProps> = ({ title, images, time }) => {
           }}>
           {images.map((src, i) => (
             <SwiperSlide key={i}>
-              <div className="relative w-[410px] min-h-[563px]">
+              <div className="relative w-[410px] min-h-[586px]">
                 <Image fill src={src} alt="picture" className="object-cover" />
               </div>
             </SwiperSlide>

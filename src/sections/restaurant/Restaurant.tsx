@@ -11,9 +11,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 const SLIDES_BG = [
   '/img/slides/restaurant.webp',
-  '/img/slides/restaurant.webp',
-  '/img/slides/restaurant.webp',
-  '/img/slides/restaurant.webp',
+  '/img/slides/restaurant2.webp',
+  '/img/slides/restaurant3.webp',
 ];
 
 export const Restaurant: React.FC = () => {
